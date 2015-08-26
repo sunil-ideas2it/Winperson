@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <!-- Creates the navbar -->
+    <nav class="navbar navbar-default navbar-inverse">
+        <!-- This creates the mechanism for collapse button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <!-- This controls the number of lines in the image when the nav collapse -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- This is the brand on the left-hand side. -->
+        <a class="navbar-brand" href="/#/"> Winperson</a>
+
+        <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li><a href="#/question">Question</a></li>
+                <li><a href="#/invite">Invite</a></li>
+            </ul>
+            <!-- This is what "styles" the li's as navbar items -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- navbar-right pulls this element right -->
+                <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+            fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+            controller will not be tied to this element. -->
+                <li>
+                    <a href="/logout">sign-out</a>
+                </li>
+                <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
+                <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+            fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+            controller will not be tied to this element. -->
+            </ul>
+        </div>
+    </nav>
+    <!-- Row start -->
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+                    <h3 class="panel-title"> New Job</h3>
+                </div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal row-border" ng-submit="submitJobForm()" id="job-form" name="job">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Title</label>
+                            <div class="col-md-10">
+                                <input type="text" name="title" class="form-control" placeholder="Title" ng-model="jobForm.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Description</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="description" placeholder="Description" ng-model="jobForm.description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Experience</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="experience" placeholder="Experience" ng-model="jobForm.experience">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Salary</label>
+                            <div class="col-md-10">
+                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-model="jobForm.salary">
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-md-2 control-label">Time For Each Question</label>
+                            <div class="col-md-10">
+                                <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="jobForm.timeperques">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Questions per Test</label>
+                            <div class="col-md-10">
+                                <input type="text" name="quespertest" class="form-control" placeholder="Questions per test" ng-model="jobForm.quespertest">
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <div class="col-md-offset-6 col-md-9">
+                                <button mean-token="'create-submit'" type="submit" class="btn btn-info">Next</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row end -->
+</div>
