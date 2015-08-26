@@ -1,3 +1,3 @@
-# Winperson1.6
+# Winperson1.8
 
 a [Sails](http://sailsjs.org) application
