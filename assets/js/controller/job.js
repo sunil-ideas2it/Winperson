@@ -2,10 +2,10 @@
  * job.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: job.js is a angular controller through which req are send to sails controller .
  */
-
-angular.module('WinpersonApp').controller('jobController', ['$scope', '$http','$location',function($scope, $http,$location) {
+angular.module('WinpersonApp').controller('jobController', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
     // set-up loading state
     $scope.signupForm = {
@@ -13,8 +13,6 @@ angular.module('WinpersonApp').controller('jobController', ['$scope', '$http','$
     }
 
     $scope.submitJobForm = function() {
-
-        console.log('---------in submit form---------', $scope.jobForm.title);
 
         // Set the loading state (i.e. show loading spinner)
         $scope.signupForm.loading = true;
@@ -29,9 +27,8 @@ angular.module('WinpersonApp').controller('jobController', ['$scope', '$http','$
                 quespertest: $scope.jobForm.quespertest
             })
             .then(function onSuccess(sailsResponse) {
-                console.log('------in succe------',sailsResponse.data.id);
-                var id= sailsResponse.data.id
-                  $location.path('/question/'+id);
+                var id = sailsResponse.data.id
+                $location.path('/question/' + id);
             })
 
     }

@@ -2,6 +2,7 @@
  * UserController
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
@@ -35,11 +36,13 @@ module.exports = {
                 return res.negotiate(err);
             }
 
-            // Log user in
-            req.session.me = newUser.id;
-
             // Send back the id of the new user
-            return res.json(200, {user: user, token: jwToken.issue({id: user.id})});
+            return res.json(200, {
+                user: user,
+                token: jwToken.issue({
+                    id: user.id
+                })
+            });
         });
     },
 
@@ -52,12 +55,10 @@ module.exports = {
         // Try to look up user using the provided email address
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
-                console.log('-------------Error response---------');
                 return res.notFound();
             }
             req.logIn(user, function(err) {
-                if (err) res.notFound(); //send(err);
-                console.log('-------------proper response---------');
+                if (err) res.notFound();
                 req.session.me = user.id;
                 return res.ok();
             });

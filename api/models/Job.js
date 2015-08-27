@@ -2,6 +2,7 @@
  * Job.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: Job model contains job information .
  * @docs        :: http://sailsjs.org/#!documentation/models
  */

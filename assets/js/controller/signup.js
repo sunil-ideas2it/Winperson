@@ -2,9 +2,9 @@
  * signup.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: signup.js is a angular controller through which req are send to sails controller .
  */
-
 angular.module('WinpersonApp').controller('signupController', ['$scope', '$http', 'toastr', function($scope, $http, toastr) {
 
     // set-up loading state
@@ -16,7 +16,7 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
 
         // Set the loading state (i.e. show loading spinner)
         $scope.signupForm.loading = true;
-       
+
         // Submit request to Sails.
         $http.post('/signup', {
                 name: $scope.signupForm.name,

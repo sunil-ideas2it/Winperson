@@ -1,3 +1,4 @@
+<!--question Form -->
 <div class="container-fluid">
     <!-- Creates the navbar -->
     <nav class="navbar navbar-default navbar-inverse">
@@ -24,7 +25,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="/logout">sign-out</a>
+                    <a href="/logout">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -34,7 +35,7 @@
         </div>
     </nav>
 
-     <div class="row">
+    <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
@@ -46,55 +47,34 @@
                     <form class="form-horizontal" ng-submit="submitQuestionForm()" id="question-form" class="form-question" name="question">
                         <fieldset>
 
-                <!-- Form Name -->
-                <legend>Questions</legend>
+                            <!-- Form Name -->
+                            <legend>Questions</legend>
 
-                <!-- Textarea -->
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-md-6">
-                        <textarea rows="15" cols="65" id="textarea" name="textarea" ng-model="questionForm.question"></textarea>
-                    </div>
-                </div>
+                            <!-- Textarea -->
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-md-6">
+                                    <textarea rows="15" cols="65" id="textarea" name="textarea" ng-model="questionForm.question"></textarea>
+                                </div>
+                            </div>
 
-               <div class="form-group">
-                    <div class= "col-md-offset-4 col-md-6">
-                        <input type="text" name="timeperques" placeholder="Time For Each Question" ng-model="questionForm.timeperques">
-                        <input type="text" name="quespertest" placeholder="Questions per test" ng-model="questionForm.quespertest">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class= "col-md-offset-5 col-md-6">
-                        <button type="submit" class="btn btn-info">Back</button>
-                        <button type="submit" class="btn btn-info col-md-offset-3 col">Next</button>
-                    </div>
-                </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-6">
+                                    <input type="number" name="timeperques" placeholder="Time For Each Question" ng-model="questionForm.timeperques">
+                                    <input type="number" name="quespertest" placeholder="Questions per test" ng-model="questionForm.quespertest">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-5 col-md-6">
+                                    <button type="submit" class="btn btn-info">Back</button>
+                                    <button type="submit" class="btn btn-info col-md-offset-3 col">Next</button>
+                                </div>
+                            </div>
 
-            </fieldset>
-        </form>
-                
+                        </fieldset>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
-    <!--<div class="jumbotron">
-        <form class="form-horizontal" ng-submit="submitQuestionForm()" id="question-form" class="form-question" name="question">
-            <fieldset>
-
-                
-                <legend>Questions</legend>
-
-                                <div class="control-group">
-                    <div class="controls">
-                        <textarea rows="15" cols="50" id="textarea" name="textarea" ng-model="questionForm.question"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-md-6">
-                        <button type="submit" class="btn btn-info">Submit</button>
-                    </div>
-                </div>
-
-            </fieldset>
-          </form>
-        </div>-->
-    </div>
+</div>

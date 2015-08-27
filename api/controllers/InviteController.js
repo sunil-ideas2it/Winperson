@@ -2,10 +2,10 @@
  * InviteController
  *
  * @author      :: Sunil Hirole
+ * @dated       :: 27-08-2015
  * @description :: Server-side logic for managing invites
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
 var nodemailer = require('nodemailer');
 var csv = require('fast-csv');
 var fs = require('fs');
@@ -13,8 +13,6 @@ var randtoken = require('rand-token');
 module.exports = {
 
     upload: function(req, res) {
-
-        console.log('form body', req.file);
 
         //accepts upload and moves it to .tmp/uploads
         req.file('file').upload(function(err, files) {
@@ -33,7 +31,6 @@ module.exports = {
                 error: 'Unable to upload file'
             });
 
-
             console.log('file data', err, files);
             // files is an array of the files that were uploaded
             // files[0].fd = file path to first uploaded file
@@ -44,7 +41,7 @@ module.exports = {
 
 
             var stream = fs.createReadStream(files[0].fd);
-           
+
             var csvStream = csv()
                 .on("data", function(data) {
                     var token = randtoken.generate(16);
@@ -66,11 +63,30 @@ module.exports = {
                                 return res.negotiate(err);
                             }
 
-                            // Send back the id of the new user
-                            /* return res.json({
-                               id: newJob.id
-                             });*/
-                            //return res.ok();
+                            var transporter = nodemailer.createTransport({
+                                service: 'Gmail',
+                                auth: {
+                                    user: 'nithitest1@gmail.com',
+                                    pass: 'test!@#$'
+                                }
+                            });
+                            // setup e-mail data with unicode symbols
+                            var mailOptions = {
+                                from: 'Winperson <nithitest1@gmail.com>',
+                                to: data[2],
+                                subject: 'Winperson Invite',
+                                text: 'Winperson',
+                                html: '<p>Hi' + ' ' + data[0] + ',' + '</b>Nithi Manager has invited you to interview for the Job position at Ideas2It. Click the link below to accept the invitation http://localhost:1337/#/test/' + token + ' ' + 'We are here to help you with every step along the way. Feel free to reach out to us at helpdesk@winperson.me. We would love to hear from you! Thanks.</p>'
+                            };
+
+                            // send mail with defined transport object
+                            transporter.sendMail(mailOptions, function(error, info) {
+                                if (error) {
+                                    return console.log(error);
+                                }
+                                console.log('Message sent: ' + info.response);
+                                //res.ok();
+                            });
                         });
                 })
                 .on("end", function() {
@@ -88,54 +104,6 @@ module.exports = {
                 files: files
             });
 
-
-        });
-    },
-
-    sendemail: function(req, res) {
-        console.log('-----hii Send Email--------');
-        var params = req.params.all();
-        console.log(params);
-        if (!params.email) {
-            res.send(500);
-        }
-
-        var msg = [];
-        msg = 'Someone Has Contact You From the Website!\n';
-        msg += '------------------------------------------\n';
-
-        if (params.email) {
-            msg += 'Email: ' + params.email + '\n';
-        }
-
-        // create reusable transporter object using SMTP transport
-        var transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: 'nithitest1@gmail.com',
-                pass: 'test!@#$'
-            }
-        });
-        // NB! No need to recreate the transporter object. You can use
-        // the same transporter object for all e-mails
-
-        // setup e-mail data with unicode symbols
-        var mailOptions = {
-            from: 'TEST Foo ✔ <nithitest1@gmail.com>', // sender address
-            to: params.email, // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Hello world ✔', // plaintext body
-            html: '<b>Hello world ✔</b>' // html body
-        };
-
-        // send mail with defined transport object
-        transporter.sendMail(mailOptions, function(error, info) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log('Message sent: ' + info.response);
-            res.ok();
         });
     }
-
 };

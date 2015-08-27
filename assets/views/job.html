@@ -24,7 +24,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="/logout">sign-out</a>
+                    <a href="/logout">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -48,39 +48,27 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Title</label>
                             <div class="col-md-10">
-                                <input type="text" name="title" class="form-control" placeholder="Title" ng-model="jobForm.title">
+                                <input type="text" name="title" class="form-control" placeholder="Title" ng-model="jobForm.title" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Description</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" name="description" placeholder="Description" ng-model="jobForm.description">
+                                <input class="form-control" type="text" name="description" placeholder="Description" ng-model="jobForm.description" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Experience</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="text" name="experience" placeholder="Experience" ng-model="jobForm.experience">
+                                <input class="form-control" type="text" name="experience" placeholder="Experience" ng-model="jobForm.experience" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Salary</label>
                             <div class="col-md-10">
-                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-model="jobForm.salary">
+                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-model="jobForm.salary" required>
                             </div>
                         </div>
-                        <!--<div class="form-group">
-                            <label class="col-md-2 control-label">Time For Each Question</label>
-                            <div class="col-md-10">
-                                <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="jobForm.timeperques">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">Questions per Test</label>
-                            <div class="col-md-10">
-                                <input type="text" name="quespertest" class="form-control" placeholder="Questions per test" ng-model="jobForm.quespertest">
-                            </div>
-                        </div>-->
                         <div class="form-group">
                             <div class="col-md-offset-6 col-md-9">
                                 <button mean-token="'create-submit'" type="submit" class="btn btn-info">Next</button>

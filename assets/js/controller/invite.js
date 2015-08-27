@@ -2,6 +2,7 @@
  * Invite.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: invite.js is a angular controller through which req are send to sails controller .
  */
 angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse) {
@@ -24,7 +25,6 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
     this.uploadFileToUrl = function(file, uploadUrl) {
         var fd = new FormData();
         fd.append('file', file);
-        console.log('---------file---------', file);
         $http.post(uploadUrl, fd, {
                 transformRequest: angular.identity,
                 headers: {
@@ -36,7 +36,7 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
                 if (data.result) {
 
                     alert('file uploaded. See .tmp/uploads folder.');
-                    window.location = '#/sendmails';
+                    window.location = '#/job';
                 }
             })
             .error(function(err) {
@@ -61,7 +61,6 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
 
         // Set the loading state (i.e. show loading spinner)
         $scope.emailForm.loading = true;
-        console.log('------Client invite ctrl', $scope.emailForm.email);
         // Submit request to Sails.
         $http.post('/sendmails', {
                 email: $scope.emailForm.email

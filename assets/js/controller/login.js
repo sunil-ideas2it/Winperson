@@ -2,9 +2,9 @@
  * login.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: login.js is a angular controller through which req are send to sails controller .
  */
-
 angular.module('WinpersonApp').controller('loginController', ['$scope', '$http', 'toastr', function($scope, $http, toastr) {
 
     // set-up loginForm loading state
@@ -24,13 +24,10 @@ angular.module('WinpersonApp').controller('loginController', ['$scope', '$http',
             })
             .then(function onSuccess() {
 
-                console.log('-------success Response--------');
                 // Refresh the page now that we've been logged in.
                 window.location = '#/job';
             })
             .catch(function onError(sailsResponse) {
-
-                console.log('-------sails Response--------');
 
                 // Handle known error type(s).
                 // Invalid username / password combination.

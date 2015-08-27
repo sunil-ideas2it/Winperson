@@ -2,6 +2,7 @@
  * User.js
  *
  * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
@@ -44,18 +45,6 @@ module.exports = {
                 }
             });
         });
-    },
-    
-  comparePassword : function (password, user, cb) {
-    bcrypt.compare(password, user.password, function (err, match) {
-
-      if(err) cb(err);
-      if(match) {
-        cb(null, true);
-      } else {
-        cb(err);
-      }
-    })
-  }
+    }
 
 };

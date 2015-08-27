@@ -2,13 +2,14 @@
  * JobController
  *
  * @author      :: Sunil Hirole
+ * @dated       :: 27-08-2015
  * @description :: Server-side logic for managing jobs
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 module.exports = {
 
     create: function(req, res) {
-        console.log('-----req body--------', req.body);
+
         Job.create({
             title: req.param('title'),
             description: req.param('description'),
@@ -22,15 +23,9 @@ module.exports = {
 
                 console.log("err: ", err);
                 console.log("err.invalidAttributes: ", err.invalidAttributes)
-
-
                 // Otherwise, send back something reasonable as our error response.
                 return res.negotiate(err);
             }
-
-            // Log user in
-            //req.session.me = newJob.id;
-
             // Send back the id of the new job
             return res.json({
                 id: newJob.id

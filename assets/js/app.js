@@ -1,3 +1,10 @@
+/**
+ * app.js
+ *
+ * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
+ * @description :: app.js is a angular routing for frontend.
+ */
 var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo']);
 winperson.config(function ($routeProvider) {
   $routeProvider
@@ -27,6 +34,16 @@ winperson.config(function ($routeProvider) {
       .when('/sendmails', {
       templateUrl: 'views/sendmail.html',
       controller: 'invitesController'
+    })
+      .when('/test/:token', {
+      templateUrl: 'views/test.html',
+      controller: 'testController'
+    })
+      .when('/testpage', {
+      templateUrl: 'views/testpage.html'
+    })
+      .when('/logout', {
+      templateUrl: 'views/login.html'
     });
 
 })
