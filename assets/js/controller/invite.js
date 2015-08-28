@@ -49,7 +49,15 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
 .controller('invitesController', ['$scope', '$http', 'fileUpload', function($scope, $http, fileUpload) {
 
     $scope.uploadFile = function() {
-        var file = $scope.myFile;
+        var file = $scope.csvFile;
+
+      if (($scope.csvFile.name.substring($scope.csvFile.name.lastIndexOf('.') + 1) != 'csv')) {
+           $scope.errorMsg='please upload valid csv file';
+           if($scope.errorMsg){
+              alert($scope.errorMsg);
+              return ;
+           }   
+          }
         console.log('file is ');
         console.dir(file);
         var uploadUrl = "/invites";
