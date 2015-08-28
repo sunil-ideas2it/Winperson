@@ -64,9 +64,10 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.timeperques.$invalid &&question.timeperques.$dirty}">
-                                    <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.timeperques" required>
+                                    <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.timeperques" ng-pattern="/^[0-9]+$/" required>
                                     <span class="help-block has-error" ng-if="question.timeperques.$dirty">
                                  <span ng-show="question.timeperques.$error.required">Time per question  is required.</span>
+                                 <span ng-show="question.timeperques.$error.pattern">Input should be number.</span>
                                  <span ng-show="question.timeperques.$error.timeperques">Not a valid timeperques .</span>
                                 </span>
                                 </div>
@@ -75,9 +76,10 @@
                           
                              <div class="form-group">
                                 <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.quespertest.$invalid &&question.quespertest.$dirty}">
-                                    <input type="text" name="quespertest" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.quespertest" required>
+                                    <input type="text" name="quespertest" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.quespertest" ng-pattern="/^[0-9]+$/" required>
                                     <span class="help-block has-error" ng-if="question.quespertest.$dirty">
                                  <span ng-show="question.quespertest.$error.required">Question per test  is required.</span>
+                                 <span ng-show="question.quespertest.$error.pattern">Input should be number.</span>
                                  <span ng-show="question.quespertest.$error.quespertest">Not a valid quespertest .</span>
                                 </span>
                                 </div>

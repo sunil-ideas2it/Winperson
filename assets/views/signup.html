@@ -13,12 +13,13 @@
             <label>Your full name</label>
 
             <!-- For this input field make it required, and have a max length of 25 -->
-            <input type="text" class="form-control" placeholder="Name" name="name" ng-model="signupForm.name" ng-maxlength="50" required>
+            <input type="text" class="form-control" placeholder="Name" name="name" ng-model="signupForm.name" ng-maxlength="50" ng-pattern="/^[a-zA-Z]+$/" required>
 
             <!-- Also, if signup.name.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
           and/or maxlength) -->
             <span class="help-block has-error" ng-if="signup.name.$dirty">
             <span ng-show="signup.name.$error.required">Name is required.</span>
+            <span ng-show="signup.name.$error.pattern">Name should be string.</span>
             <span ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
             </span>
         </div>
