@@ -24,7 +24,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="/logout">Signout</a>
+                    <a href="#/logout">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -45,28 +45,44 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal row-border" ng-submit="submitJobForm()" id="job-form" name="job">
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error':job.title.$invalid &&
+                              job.title.$dirty}">
                             <label class="col-md-2 control-label">Title</label>
                             <div class="col-md-10">
                                 <input type="text" name="title" class="form-control" placeholder="Title" ng-model="jobForm.title" required>
+                                <span class="help-block has-error" ng-if="job.title.$dirty">
+                                <span ng-show="job.title.$error.required">Title is required.</span>
+                                </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error':job.description.$invalid &&
+                              job.description.$dirty}">
                             <label class="col-md-2 control-label">Description</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="text" name="description" placeholder="Description" ng-model="jobForm.description" required>
+                                <span class="help-block has-error" ng-if="job.description.$dirty">
+                                <span ng-show="job.description.$error.required">Description is required.</span>
+                                </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error':job.experience.$invalid &&
+                              job.experience.$dirty}">
                             <label class="col-md-2 control-label">Experience</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="text" name="experience" placeholder="Experience" ng-model="jobForm.experience" required>
+                                <span class="help-block has-error" ng-if="job.experience.$dirty">
+                                <span ng-show="job.experience.$error.required">Experience is required.</span>
+                                </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error':job.salary.$invalid &&
+                              job.salary.$dirty}">
                             <label class="col-md-2 control-label">Salary</label>
                             <div class="col-md-10">
                                 <input type="text" name="salary" class="form-control" placeholder="Salary" ng-model="jobForm.salary" required>
+                                <span class="help-block has-error" ng-if="job.salary.$dirty">
+                                <span ng-show="job.salary.$error.required">Salary is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="form-group">
