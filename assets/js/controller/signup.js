@@ -11,9 +11,12 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
     $scope.signupForm = {
         loading: false
     }
-
+    $scope.signupForm.password = '';
+    $scope.$watch('signupForm.password', function() {
+        $scope.signupForm.password = $scope.signupForm.password.replace(/\s+/g,'');
+  });
     $scope.submitSignupForm = function() {
-
+        $scope.integerval=/^\d*$/;
         // Set the loading state (i.e. show loading spinner)
         $scope.signupForm.loading = true;
 

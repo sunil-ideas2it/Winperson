@@ -36,16 +36,16 @@
         </div>
 
         <!-- P A S S W O R D -->
-
-        <div class="control-group form-group col-md-6" ng-class="{'has-error':signup.password.$invalid &&signup.password.$dirty}">
+         <div class="control-group form-group col-md-6" ng-class="{'has-error':signup.password.$invalid &&signup.password.$dirty}">
             <label>Choose a password</label>
             <!-- Added the compareTo directive that compares the passowrds -->
-            <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword">
+            <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" required>
             <span class="help-block has-error" ng-if="signup.password.$dirty">
             <span ng-show="signup.password.$error.required">Password is required.</span>
             <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
             </span>
-        </div>
+        </div>    
+       
 
         <!-- C O N F I R M  P A S S W O R D -->
 
