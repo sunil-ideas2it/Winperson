@@ -15,8 +15,6 @@ module.exports = {
             description: req.param('description'),
             experience: req.param('experience'),
             salary: req.param('salary'),
-            timeperques: req.param('timeperques'),
-            quespertest: req.param('quespertest'),
             lastLoggedIn: new Date()
         }, function jobCreated(err, newJob) {
             if (err) {

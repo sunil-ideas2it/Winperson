@@ -22,9 +22,7 @@ angular.module('WinpersonApp').controller('jobController', ['$scope', '$http', '
                 title: $scope.jobForm.title,
                 description: $scope.jobForm.description,
                 experience: $scope.jobForm.experience,
-                salary: $scope.jobForm.salary,
-                timeperques: $scope.jobForm.timeperques,
-                quespertest: $scope.jobForm.quespertest
+                salary: $scope.jobForm.salary
             })
             .then(function onSuccess(sailsResponse) {
                 var id = sailsResponse.data.id

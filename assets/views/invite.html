@@ -1,4 +1,3 @@
-
 <!--invite Form -->
 <div class="container-fluid">
     <!-- Creates the navbar -->
@@ -26,7 +25,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="/logout">Signout</a>
+                    <a href="#/logout">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -47,7 +46,7 @@
 
                 <div class="panel-body">
                     <form id="uploadForm" enctype="multipart/form-data" method="post">
-                        <input type="file" file-model="myFile" />
+                        <input type="file" file-model="myFile" /><br>
                         <button ng-click="uploadFile()">upload</button>
                     </form>
                 </div>

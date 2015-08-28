@@ -38,9 +38,9 @@ module.exports = {
 
             // Send back the id of the new user
             return res.json(200, {
-                user: user,
+                user: newUser,
                 token: jwToken.issue({
-                    id: user.id
+                    id: newUser.id
                 })
             });
         });
