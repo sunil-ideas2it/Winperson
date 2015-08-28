@@ -14,10 +14,6 @@
 
         <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-            <ul class="nav navbar-nav">
-                <li><a href="#/job">Job</a></li>
-                <li><a href="#/invite">Invite</a></li>
-            </ul>
             <!-- This is what "styles" the li's as navbar items -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- navbar-right pulls this element right -->
@@ -25,7 +21,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="#/logout">Signout</a>
+                    <a href="/logout">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -41,6 +37,7 @@
                 <div class="panel-heading clearfix">
                     <i class="icon-calendar"></i>
                     <h3 class="panel-title">New Job</h3>
+                    
                 </div>
 
                 <div class="panel-body">
@@ -50,27 +47,57 @@
                             <!-- Form Name -->
                             <legend>Questions Text Box</legend>
 
-                            <!-- Textarea -->
+                            <!-- Questions -->
                             <div class="form-group">
-                                <div class="col-md-offset-3 col-md-6">
-                                    <textarea rows="15" cols="66" id="textarea" name="textarea" ng-model="questionForm.question" placeholder="Enter the questions in JSON format" required></textarea>
+                                <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.question.$invalid &&
+                             question.question.$dirty}">
+                                    <textarea rows="15" cols="66" id="textarea" placeholder="write your questions in JSON Format" class="form-control" name="textarea" ng-model="questionForm.question" required>
+                                        <!-- Also, if question.question.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
+                                       and/or maxlength) -->
+                                      <span class="help-block has-error" ng-if="question.question.$dirty">
+                                      <span ng-show="question.question.$error.required">question is required.</span>
+                                      </span>
+                                      <span ng-show="question.question.$error.question">Not a valid question .</span>
+                                    </textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-offset-5 col-md-6">
-                                    <input type="number" name="timeperques" placeholder="Time For Each Question" ng-model="questionForm.timeperques" required><br><br>
-                                    <input type="number" name="quespertest" placeholder="Questions per test" ng-model="questionForm.quespertest" required>
+                                <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.timeperques.$invalid &&question.timeperques.$dirty}">
+                                    <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.timeperques" ng-pattern="/^[0-9]+$/" required>
+                                    <span class="help-block has-error" ng-if="question.timeperques.$dirty">
+                                 <span ng-show="question.timeperques.$error.required">Time per question  is required.</span>
+                                 <span ng-show="question.timeperques.$error.pattern">Input should be number.</span>
+                                 <span ng-show="question.timeperques.$error.timeperques">Not a valid timeperques .</span>
+                                </span>
                                 </div>
                             </div>
+
+                          
+                             <div class="form-group">
+                                <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.quespertest.$invalid &&question.quespertest.$dirty}">
+                                    <input type="text" name="quespertest" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.quespertest" ng-pattern="/^[0-9]+$/" required>
+                                    <span class="help-block has-error" ng-if="question.quespertest.$dirty">
+                                 <span ng-show="question.quespertest.$error.required">Question per test  is required.</span>
+                                 <span ng-show="question.quespertest.$error.pattern">Input should be number.</span>
+                                 <span ng-show="question.quespertest.$error.quespertest">Not a valid quespertest .</span>
+                                </span>
+                                </div>
+                            </div>
+
+
+
+
                             <div class="form-group">
-                                <div class="col-md-offset-3 col-md-7">
+                                <div class="col-md-offset-3 col-md-6">
                                     <button type="submit" class="btn btn-info" onclick="window.location.href='#/job'">Back</button>
-                                    <button type="submit" class="btn btn-info col-md-offset-9 col">Next</button>
+                                    <button type="submit" class="btn btn-info  pull-right" ng-disabled="question.$invalid"><span ng-show="!questionForm.loading">Next</span></button>
                                 </div>
                             </div>
+
                         </fieldset>
                     </form>
+
                 </div>
             </div>
         </div>

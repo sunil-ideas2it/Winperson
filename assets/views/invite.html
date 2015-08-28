@@ -14,10 +14,6 @@
 
         <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-            <ul class="nav navbar-nav">
-                <li><a href="#/job">Job</a></li>
-                <li><a href="#/question">Questions</a></li>
-            </ul>
             <!-- This is what "styles" the li's as navbar items -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- navbar-right pulls this element right -->
@@ -46,7 +42,7 @@
 
                 <div class="panel-body">
                     <form id="uploadForm" enctype="multipart/form-data" method="post">
-                        <input type="file" file-model="myFile" /><br>
+                        <input type="file" file-model="csvFile" accept=".csv" /><br>
                         <button ng-click="uploadFile()">upload</button>
                     </form>
                 </div>
