@@ -76,7 +76,7 @@ module.exports = {
                                 to: data[2],
                                 subject: 'Winperson Invite',
                                 text: 'Winperson',
-                                html: '<p>Hi' + ' ' + data[0] + ',' + '</b>Nithi Manager has invited you to interview for the Job position at Ideas2It. Click the link below to accept the invitation http://localhost:1337/#/test/' + token + ' ' + 'We are here to help you with every step along the way. Feel free to reach out to us at helpdesk@winperson.me. We would love to hear from you! Thanks.</p>'
+                                html: '<p>Hi' + ' ' + data[0] + ',' + '<br>Nithi Manager has invited you to interview for the Job position at Ideas2It. Click the link below to accept the invitation<br> http://localhost:1337/#/test/' + token + ' ' + '<br>We are here to help you with every step along the way. Feel free to reach out to us at helpdesk@winperson.me. We would love to hear from you! <br>Thanks.</p>'
                             };
 
                             // send mail with defined transport object

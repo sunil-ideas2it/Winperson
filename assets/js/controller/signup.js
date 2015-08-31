@@ -5,18 +5,17 @@
  * @dated        : 27-08-2015
  * @description :: signup.js is a angular controller through which req are send to sails controller .
  */
-angular.module('WinpersonApp').controller('signupController', ['$scope', '$http', 'toastr', function($scope, $http, toastr) {
+angular.module('WinpersonApp').controller('signupController', ['$scope', '$http', 'toastr','$routeParams', function($scope, $http, toastr, $routeParams) {
 
     // set-up loading state
     $scope.signupForm = {
         loading: false
     }
-    $scope.signupForm.password = '';
+    /*$scope.signupForm.password = '';
     $scope.$watch('signupForm.password', function() {
         $scope.signupForm.password = $scope.signupForm.password.replace(/\s+/g,'');
-  });
+  });*/
     $scope.submitSignupForm = function() {
-        $scope.integerval=/^\d*$/;
         // Set the loading state (i.e. show loading spinner)
         $scope.signupForm.loading = true;
 
@@ -45,5 +44,20 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
                 $scope.signupForm.loading = false;
             })
     };
+    /*$scope.submitApplicantSignupForm = function() {
+         console.log('--------------in ang controller--------');
+        // Submit request to Sails.
+        $http.post('/applicantsignup', {
+                token: $routeParams.token,
+                password: $scope.signupForm.password
+            })
+            .then(function onSuccess(sailsResponse) {
+                window.location = '/';
+            })
+            .catch(function onError(sailsResponse) {
+
+            })
+           
+    };*/
 
 }]);

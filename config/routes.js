@@ -40,7 +40,8 @@ module.exports.routes = {
   'POST /job' : 'JobController.create',
   'POST /questions': 'QuestionController.create',
   'POST /invites' : 'InviteController.upload',
-  'POST /test' : 'TestController.checkToken'
+  'POST /test' : 'TestController.checkToken',
+  'POST /applicantsignup' : 'UserController.applicantSignup'
   /* 'GET /dashboard': {
     view: 'adminpage'  
   }*/

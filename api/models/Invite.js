@@ -9,12 +9,12 @@
 module.exports = {
     attributes: {
         firstname: {
-            type: 'string',
-            required: true
+            type: 'string'
+            //required: true
         },
         lastname: {
-            type: 'string',
-            required: true
+            type: 'string'
+            //required: true
         },
         emailid: {
             type: 'string',

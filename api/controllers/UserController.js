@@ -19,6 +19,7 @@ module.exports = {
             name: req.param('name'),
             email: req.param('email'),
             password: req.param('password'),
+            role: 1,
             lastLoggedIn: new Date()
         }, function userCreated(err, newUser) {
             if (err) {
@@ -47,24 +48,97 @@ module.exports = {
     },
 
     /**
-     * Check the provided email address and password, and if they
-     * match a real user in the database, sign in to Activity Overlord.
+     * Sign up for a Applicant account.
      */
-    login: function(req, res) {
+    applicantSignup: function(req, res) {
+        Invite.findOne({
+            token: req.body.token
+        }).exec(function findOneCB(err, applicant) {
+                if (err) {
+                    alert('Sorry!!!! You are not Authorized');
+                    return res.notFound();
+                }
+                if (!applicant.firstname || !applicant.lastname) {
 
-        // Try to look up user using the provided email address
-        passport.authenticate('local', function(err, user, info) {
-            if ((err) || (!user)) {
-                return res.notFound();
-            }
-            req.logIn(user, function(err) {
-                if (err) res.notFound();
-                req.session.me = user.id;
-                return res.ok();
-            });
+                    User.create({
+                        name: req.body.firstname + ' ' + req.body.lastname,
+                        email: applicant.emailid,
+                        password: req.body.password,
+                        role: 2,
+                        lastLoggedIn: new Date()
+                    }, function userCreated(err, newUser) {
+                        if (err) {
+                            console.log(newUser);
+                            console.log("err: ", err);
+                            console.log("err.invalidAttributes: ", err.invalidAttributes)
 
-        })(req, res);
+                            // If this is a uniqueness error about the email attribute,
+                            // send back an easily parseable status code.
+                            if (err.invalidAttributes && err.invalidAttributes.email && err.invalidAttributes.email[0] && err.invalidAttributes.email[0].rule === 'unique') {
+                                return res.emailAddressInUse();
+                            }
 
-    }
+                            // Otherwise, send back something reasonable as our error response.
+                            return res.negotiate(err);
+                        }
+
+                        // Send back the id of the new user
+                        return res.ok();
+                    });
+                }
+                else {
+                    User.create({
+                        name: applicant.firstname + ' ' + applicant.lastname,
+                        email: applicant.emailid,
+                        password: req.body.password,
+                        role: 2,
+                        lastLoggedIn: new Date()
+                    }, function userCreated(err, newUser) {
+                        if (err) {
+                            console.log(newUser);
+                            console.log("err: ", err);
+                            console.log("err.invalidAttributes: ", err.invalidAttributes)
+
+                            // If this is a uniqueness error about the email attribute,
+                            // send back an easily parseable status code.
+                            if (err.invalidAttributes && err.invalidAttributes.email && err.invalidAttributes.email[0] && err.invalidAttributes.email[0].rule === 'unique') {
+                                return res.emailAddressInUse();
+                            }
+
+                            // Otherwise, send back something reasonable as our error response.
+                            return res.negotiate(err);
+                        }
+
+                        // Send back the id of the new user
+                        return res.ok();
+                    });
+                } 
+                //console.log('We found ' + applicant.firstname);
+            //return res.ok();
+        
+
+    });
+},
+
+/**
+ * Check the provided email address and password, and if they
+ * match a real user in the database, sign in to Winperson.
+ */
+login: function(req, res) {
+
+    // Try to look up user using the provided email address
+    passport.authenticate('local', function(err, user, info) {
+        if ((err) || (!user)) {
+            return res.notFound();
+        }
+        req.logIn(user, function(err) {
+            if (err) res.notFound();
+            req.session.me = user.id;
+            return res.ok();
+        });
+
+    })(req, res);
+
+}
 
 };
