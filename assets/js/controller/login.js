@@ -5,7 +5,7 @@
  * @dated        : 27-08-2015
  * @description :: login.js is a angular controller through which req are send to sails controller .
  */
-angular.module('WinpersonApp').controller('loginController', ['$scope', '$http', 'toastr', function($scope, $http, toastr) {
+angular.module('WinpersonApp').controller('loginController', ['$scope','$location','$rootScope', '$http', 'toastr', function($scope, $location,$rootScope,$http, toastr) {
 
     // set-up loginForm loading state
     $scope.loginForm = {
@@ -22,10 +22,17 @@ angular.module('WinpersonApp').controller('loginController', ['$scope', '$http',
                 email: $scope.loginForm.email,
                 password: $scope.loginForm.password
             })
-            .then(function onSuccess() {
+            .then(function onSuccess(sailsResponse) {
 
                 // Refresh the page now that we've been logged in.
-                window.location = '#/job';
+                if(sailsResponse.data.role==='1'){
+                    $rootScope.loggedInUser = $scope.loginForm.email;
+                    window.location = '#/job';
+                }
+                else {
+                    window.location = '#/dashboard';
+                }
+                      
             })
             .catch(function onError(sailsResponse) {
 
@@ -49,7 +56,21 @@ angular.module('WinpersonApp').controller('loginController', ['$scope', '$http',
             .finally(function eitherWay() {
                 $scope.loginForm.loading = false;
             });
-    };
+    }
 
+     $scope.signout = function() {
+        console.log('-----in sign out----');
+
+       $http.put('/logout', {
+            })
+            .then(function onSuccess(sailsResponse) {
+
+                // Refresh the page now that we've been logged in.
+                    $rootScope.loggedInUser = null;
+                    window.location = '/';
+                      
+            })
+
+   };
 
 }]);

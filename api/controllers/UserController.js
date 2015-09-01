@@ -118,14 +118,13 @@ module.exports = {
         
 
     });
-},
+   },
 
 /**
  * Check the provided email address and password, and if they
  * match a real user in the database, sign in to Winperson.
  */
 login: function(req, res) {
-
     // Try to look up user using the provided email address
     passport.authenticate('local', function(err, user, info) {
         if ((err) || (!user)) {
@@ -133,12 +132,19 @@ login: function(req, res) {
         }
         req.logIn(user, function(err) {
             if (err) res.notFound();
-            req.session.me = user.id;
-            return res.ok();
+            console.log(user.role);
+            return res.json(user);
         });
 
     })(req, res);
 
-}
+      },
 
-};
+  logout: function(req,res){
+
+    req.logOut();
+    return res.ok();
+
+  }    
+
+  };

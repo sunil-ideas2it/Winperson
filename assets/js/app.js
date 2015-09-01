@@ -6,7 +6,7 @@
  * @description :: app.js is a angular routing for frontend.
  */
 var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo']);
-winperson.config(function ($routeProvider) {
+winperson.config(function ($routeProvider,$locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/login.html',
@@ -44,7 +44,18 @@ winperson.config(function ($routeProvider) {
       controller: 'testController'
     })
       .when('/logout', {
-      templateUrl: 'views/login.html'
+      templateUrl: 'views/login.html',
+      controller: 'loginController'
     });
+}).run(function($rootScope, $location) {
 
-})
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ($rootScope.loggedInUser == null) {
+        // no logged user, redirect to /login
+        if ( next.templateUrl === "views/login.html") {
+        } else {
+          $location.path("/");
+        }
+      }
+    });
+  });

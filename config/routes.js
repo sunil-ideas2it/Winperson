@@ -33,7 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'  
+    view: 'homepage'
   },
   'POST /signup': 'UserController.signup',
   'PUT /login' : 'UserController.login',
@@ -41,7 +41,8 @@ module.exports.routes = {
   'POST /questions': 'QuestionController.create',
   'POST /invites' : 'InviteController.upload',
   'POST /test' : 'TestController.checkToken',
-  'POST /applicantsignup' : 'UserController.applicantSignup'
+  'POST /applicantsignup' : 'UserController.applicantSignup',
+  'PUT /logout' : 'UserController.logout'
   /* 'GET /dashboard': {
     view: 'adminpage'  
   }*/

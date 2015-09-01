@@ -48,4 +48,12 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+   '*': "authenticated",
+    UserController: {
+        "*": true,
+    },
+    JobController: {
+        "create": true,
+    }
 };
