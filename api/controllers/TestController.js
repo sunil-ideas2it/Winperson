@@ -15,14 +15,17 @@ module.exports = {
         // Try to look up user using the provided email address
         Invite.findOne({
             token: req.body.token
-        }).exec(function findOneCB(err, found) {
+        }).exec(function findOneCB(err, applicant) {
             if (err) {
                 alert('Sorry!!!! You are not Authorized');
-                return;
+                return res.notFound();
             }
-            if(found){
-              console.log('We found ' + found.firstname);
-              return res.ok();
+            if(applicant){
+              console.log('We found ' + applicant.firstname);
+              return res.json(applicant
+                //firstname:applicant.firstname,
+                //lastname:applicant.lastname
+              );//res.ok();
             }
             
         });

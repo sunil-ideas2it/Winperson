@@ -39,8 +39,9 @@ winperson.config(function ($routeProvider) {
       templateUrl: 'views/test.html',
       controller: 'testController'
     })
-      .when('/testpage', {
-      templateUrl: 'views/testpage.html'
+      .when('/applicantsignup/:token', {
+      templateUrl: 'views/applicantsignup.html',
+      controller: 'testController'
     })
       .when('/logout', {
       templateUrl: 'views/login.html'

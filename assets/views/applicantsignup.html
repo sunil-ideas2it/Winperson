@@ -1,0 +1,81 @@
+<div ng-init="checkvalidity()"></div>
+<div class="container-fluid">
+    <!-- Creates the navbar -->
+    <nav class="navbar navbar-default navbar-inverse">
+        <!-- This creates the mechanism for collapse button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <!-- This controls the number of lines in the image when the nav collapse -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- This is the brand on the left-hand side. -->
+        <a class="navbar-brand" href="/#/"> Winperson</a>
+
+        <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+
+    </nav>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+                    <h3 class="panel-title">Welcome Applicant</h3>
+                </div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal row-border" ng-submit="submitApplicantSignupForm()" id="applicant-form" name="signup">
+                        <div class="form-group " ng-class="{'has-error':signup.password.$invalid &&signup.password.$dirty}">
+                            <label class="col-md-3 control-label">Choose a password</label>
+                            <div class="col-md-8">
+                                <!-- Added the compareTo directive that compares the passowrds -->
+                                <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" required>
+                                <span class="help-block has-error" ng-if="signup.password.$dirty">
+				            <span ng-show="signup.password.$error.required">Password is required.</span>
+                                <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Re-enter your password</label>
+                            <div class="col-md-8">
+                                <!-- Added the compareTo directive that compares the passowrds -->
+                                <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
+                                <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
+				            <span ng-show="signup.password.$error.compareTo">Password must match.</span>
+                                <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group " ng-class="{'has-error':signup.firstname.$invalid &&signup.firstname.$dirty}" ng-show="!user.firstname">
+                            <label class="col-md-3 control-label">First Name</label>
+                            <div class="col-md-8">
+                                <!-- Added the compareTo directive that compares the passowrds -->
+                                <input type="text" class="form-control" placeholder="First Name" name="firstname" ng-model="signupForm.firstname" id="firstname">
+                                <span class="help-block has-error" ng-if="signup.firstname.$dirty">
+				                <span ng-show="signup.firstname.$error.required">First name is required.</span>
+                                </span>
+                            </div>
+                        </div>
+                         <div class="form-group " ng-class="{'has-error':signup.lastname.$invalid &&signup.lastname.$dirty}" ng-show="!user.lastname">
+                            <label class="col-md-3 control-label">Last Name</label>
+                            <div class="col-md-8">
+                                <!-- Added the compareTo directive that compares the passowrds -->
+                                <input type="text" class="form-control" placeholder="Last Name" name="lastname" ng-model="signupForm.lastname" id="lastname">
+                                <span class="help-block has-error" ng-if="signup.lastname.$dirty">
+				                <span ng-show="signup.lastname.$error.required">Last name is required.</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-6 col-md-9">
+                                <button mean-token="'create-submit'" type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
