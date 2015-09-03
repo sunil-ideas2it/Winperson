@@ -44,20 +44,4 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
                 $scope.signupForm.loading = false;
             })
     };
-    /*$scope.submitApplicantSignupForm = function() {
-         console.log('--------------in ang controller--------');
-        // Submit request to Sails.
-        $http.post('/applicantsignup', {
-                token: $routeParams.token,
-                password: $scope.signupForm.password
-            })
-            .then(function onSuccess(sailsResponse) {
-                window.location = '/';
-            })
-            .catch(function onError(sailsResponse) {
-
-            })
-           
-    };*/
-
 }]);

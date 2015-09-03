@@ -133,6 +133,7 @@ login: function(req, res) {
         req.logIn(user, function(err) {
             if (err) res.notFound();
             console.log(user.role);
+            req.session.me = user;
             return res.json(user);
         });
 
@@ -141,10 +142,11 @@ login: function(req, res) {
       },
 
   logout: function(req,res){
+    console.log('-----sinout server-------');
 
     req.logOut();
     return res.ok();
 
-  }    
+  }   
 
   };

@@ -27,6 +27,7 @@ module.exports = {
         role: {
             type :'string'
         },
+        
         // override default toJSON
         toJSON: function() {
             var obj = this.toObject();

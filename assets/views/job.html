@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-6 col-md-9">
-                                <button mean-token="'create-submit'" type="submit" class="btn btn-info">Next</button>
+                                <button mean-token="'create-submit'" type="submit" class="btn btn-info" ng-disabled="job.$invalid"><span ng-show="!jobForm.loading">Next</button>
                             </div>
                         </div>
                     </form>

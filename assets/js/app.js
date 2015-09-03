@@ -5,8 +5,9 @@
  * @dated        : 27-08-2015
  * @description :: app.js is a angular routing for frontend.
  */
-var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo']);
+var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies']);
 winperson.config(function ($routeProvider,$locationProvider) {
+  //var token = $routeParams.id;
   $routeProvider
     .when('/', {
       templateUrl: 'views/login.html',
@@ -37,7 +38,8 @@ winperson.config(function ($routeProvider,$locationProvider) {
     })
       .when('/test/:token', {
       templateUrl: 'views/test.html',
-      controller: 'testController'
+      controller: 'testController',
+      
     })
       .when('/applicantsignup/:token', {
       templateUrl: 'views/applicantsignup.html',
@@ -47,15 +49,19 @@ winperson.config(function ($routeProvider,$locationProvider) {
       templateUrl: 'views/login.html',
       controller: 'loginController'
     });
-}).run(function($rootScope, $location) {
+      //otherwise( { redirectTo: '/' });
+}).run(['$location', '$rootScope', '$cookieStore', '$routeParams',function($location, $rootScope, $cookieStore,$routeParams) {
+     $rootScope.loggedInUser = $cookieStore.get('user') || null;
+     //var token = $routeParams.token;
+     var token = $location.path().split(/[\s/]+/).pop();
 
-    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ($rootScope.loggedInUser == null) {
-        // no logged user, redirect to /login
-        if ( next.templateUrl === "views/login.html") {
-        } else {
-          $location.path("/");
+     //console.log('-------------------token in run------------',$location.path(),token);
+     $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        var restrictedPage = $.inArray($location.path(), [ '/signup','/test/'+token,'/applicantsignup/'+token]) === -1;
+        if (restrictedPage && $rootScope.loggedInUser == null) {
+            $location.path('/');
         }
-      }
     });
-  });
+
+}]);

@@ -55,5 +55,8 @@ module.exports.policies = {
     },
     JobController: {
         "create": true,
+    },
+    TestController: {
+      "*":true  
     }
 };

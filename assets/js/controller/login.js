@@ -5,31 +5,34 @@
  * @dated        : 27-08-2015
  * @description :: login.js is a angular controller through which req are send to sails controller .
  */
-angular.module('WinpersonApp').controller('loginController', ['$scope','$location','$rootScope', '$http', 'toastr', function($scope, $location,$rootScope,$http, toastr) {
+angular.module('WinpersonApp').controller('loginController', ['$scope','$location','$rootScope', '$http', 'toastr','$cookieStore', function($scope, $location,$rootScope,$http, toastr,$cookieStore) {
 
     // set-up loginForm loading state
     $scope.loginForm = {
         loading: false
     }
-
+   $rootScope.loggedInUser = $cookieStore.get('user') || null; 
     $scope.submitLoginForm = function() {
 
         // Set the loading state (i.e. show loading spinner)
         $scope.loginForm.loading = true;
-
+        
         // Submit request to Sails.
         $http.put('/login', {
                 email: $scope.loginForm.email,
                 password: $scope.loginForm.password
             })
             .then(function onSuccess(sailsResponse) {
-
                 // Refresh the page now that we've been logged in.
+                 $rootScope.loggedInUser = sailsResponse.data ;
+                $cookieStore.put('user',$rootScope.loggedInUser);
+               
                 if(sailsResponse.data.role==='1'){
-                    $rootScope.loggedInUser = $scope.loginForm.email;
+                    
                     window.location = '#/job';
                 }
                 else {
+        
                     window.location = '#/dashboard';
                 }
                       
@@ -59,7 +62,6 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
     }
 
      $scope.signout = function() {
-        console.log('-----in sign out----');
 
        $http.put('/logout', {
             })
@@ -67,8 +69,7 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
 
                 // Refresh the page now that we've been logged in.
                     $rootScope.loggedInUser = null;
-                    window.location = '/';
-                      
+                    $cookieStore.remove('user');                              
             })
 
    };

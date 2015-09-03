@@ -22,10 +22,7 @@ module.exports = {
             }
             if(applicant){
               console.log('We found ' + applicant.firstname);
-              return res.json(applicant
-                //firstname:applicant.firstname,
-                //lastname:applicant.lastname
-              );//res.ok();
+              return res.json(applicant);//res.ok();
             }
             
         });
