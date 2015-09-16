@@ -42,6 +42,8 @@ module.exports.routes = {
   'POST /invites' : 'InviteController.upload',
   'POST /test' : 'TestController.checkToken',
   'POST /applicantsignup' : 'UserController.applicantSignup',
+  'POST /startTest' : 'TestController.getQuestions',
+  'POST /video': 'VideoController.uploadvideo',
   'PUT /logout' : 'UserController.logout'
   /* 'GET /dashboard': {
     view: 'adminpage'  

@@ -50,6 +50,7 @@ module.exports = {
                             lastname: data[1],
                             emailid: data[2],
                             contact: data[3],
+                            jobid: req.body.jobidd,
                             token: token
                         },
                         function inviteCreated(err, newInvite) {
@@ -95,10 +96,7 @@ module.exports = {
 
             stream.pipe(csvStream);
 
-            //send response
-
-            //result:true -- file upload successful
-            //files:files -- send uploaded file data to the front end
+            
             res.send({
                 result: true,
                 files: files

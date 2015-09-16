@@ -35,7 +35,7 @@ module.exports = {
         }).exec(function(e1, r1) {
             return res.ok();
         });
-        return res.ok();
+        return res.ok(req.body.jobid);
     }
 
 };

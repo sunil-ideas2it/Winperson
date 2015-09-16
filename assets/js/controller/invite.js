@@ -5,7 +5,7 @@
  * @dated        : 27-08-2015
  * @description :: invite.js is a angular controller through which req are send to sails controller .
  */
-angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse) {
+angular.module('WinpersonApp').directive('fileModel', ['$parse',function($parse) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -21,10 +21,11 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
     };
 }])
 
-.service('fileUpload', ['$http', function($http) {
+.service('fileUpload', ['$http','$routeParams',function($http,$routeParams) {
     this.uploadFileToUrl = function(file, uploadUrl) {
         var fd = new FormData();
         fd.append('file', file);
+        fd.append('jobidd',$routeParams.jobidd);
         $http.post(uploadUrl, fd, {
                 transformRequest: angular.identity,
                 headers: {
@@ -50,8 +51,7 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse', function($parse
 
     $scope.uploadFile = function() {
         var file = $scope.csvFile;
-
-      if (($scope.csvFile.name.substring($scope.csvFile.name.lastIndexOf('.') + 1) != 'csv')) {
+        if (($scope.csvFile.name.substring($scope.csvFile.name.lastIndexOf('.') + 1) != 'csv')) {
            $scope.errorMsg='please upload valid csv file';
            if($scope.errorMsg){
               alert($scope.errorMsg);

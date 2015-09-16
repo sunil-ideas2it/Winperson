@@ -28,9 +28,13 @@ winperson.config(function ($routeProvider,$locationProvider) {
       templateUrl: 'views/question.html',
       controller: 'questionsController'
     })
-      .when('/invite', {
+      .when('/invite/:jobidd', {
       templateUrl: 'views/invite.html',
       controller: 'invitesController'
+    })
+      .when('/startTest/:id', {
+      templateUrl: 'views/startTest.html',
+      controller: 'startTestController'
     })
       .when('/sendmails', {
       templateUrl: 'views/sendmail.html',

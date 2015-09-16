@@ -24,6 +24,11 @@ module.exports = {
             type: 'string',
             required: true
         },
+
+        jobid: {
+            type: 'string',
+            required: true
+        },
         token: {
             type: 'string',
             unique: true
