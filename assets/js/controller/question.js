@@ -19,7 +19,8 @@ angular.module('WinpersonApp').controller('questionsController', ['$scope', '$ht
                 quespertest: $scope.questionForm.quespertest
             })
             .then(function onSuccess(sailsResponse) {
-                window.location = '#/invite';
+                jobidd=sailsResponse.data;
+                window.location = ('#/invite/'+jobidd);
             })
     }
 }]);

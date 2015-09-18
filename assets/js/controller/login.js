@@ -32,8 +32,9 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
                     window.location = '#/job';
                 }
                 else {
-        
-                    window.location = '#/dashboard';
+
+                     id =sailsResponse.data.id;
+                    window.location = '#/startTest/'+id;
                 }
                       
             })
