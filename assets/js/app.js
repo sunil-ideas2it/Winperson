@@ -5,7 +5,7 @@
  * @dated        : 27-08-2015
  * @description :: app.js is a angular routing for frontend.
  */
-var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies']);
+var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies','ngVideo']);
 winperson.config(function ($routeProvider,$locationProvider) {
   //var token = $routeParams.id;
   $routeProvider
@@ -20,7 +20,7 @@ winperson.config(function ($routeProvider,$locationProvider) {
     .when('/dashboard', {
       templateUrl: 'views/dashboard.html'
     })
-     .when('/job', {
+     .when('/job/:id', {
       templateUrl: 'views/job.html',	
       controller: 'jobController'
     })
@@ -48,6 +48,18 @@ winperson.config(function ($routeProvider,$locationProvider) {
       .when('/applicantsignup/:token', {
       templateUrl: 'views/applicantsignup.html',
       controller: 'testController'
+    })
+      .when('/showJob', {
+      templateUrl: 'views/showjob.html',
+      controller: 'AnswerController'
+    })
+       .when('/showanswer/:id', {
+      templateUrl: 'views/showanswer.html',
+      controller: 'AnswerController'
+    })
+        .when('/showVideo/:vname', {
+      templateUrl: 'views/showVideo.html',
+      controller: 'showVideoController'
     })
       .when('/logout', {
       templateUrl: 'views/login.html',

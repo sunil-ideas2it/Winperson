@@ -25,11 +25,12 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
             .then(function onSuccess(sailsResponse) {
                 // Refresh the page now that we've been logged in.
                  $rootScope.loggedInUser = sailsResponse.data ;
+                   id =sailsResponse.data.id;
                 $cookieStore.put('user',$rootScope.loggedInUser);
                
                 if(sailsResponse.data.role==='1'){
                     
-                    window.location = '#/job';
+                    window.location = ('#/job/'+id);
                 }
                 else {
 

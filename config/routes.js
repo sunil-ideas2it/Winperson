@@ -44,7 +44,10 @@ module.exports.routes = {
   'POST /applicantsignup' : 'UserController.applicantSignup',
   'POST /startTest' : 'TestController.getQuestions',
   'POST /video': 'VideoController.uploadvideo',
+  'GET /showJob' : 'AnswerController.getJob',
+  'POST /showAnswer' : 'AnswerController.getAnswer',
   'PUT /logout' : 'UserController.logout'
+  
   /* 'GET /dashboard': {
     view: 'adminpage'  
   }*/

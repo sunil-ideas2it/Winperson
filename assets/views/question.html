@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.question.$invalid &&
                              question.question.$dirty}">
-                                    <textarea rows="15" cols="66" id="textarea" placeholder="write your questions in JSON Format" class="form-control" name="textarea" ng-model="questionForm.question" required>
+                                    <textarea rows="15" cols="66" id="textarea" placeholder='[{"question":"Why Sails"},{"question":"Why Node"}]' class="form-control" name="textarea" ng-model="questionForm.question" required>
                                         <!-- Also, if question.question.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
                                        and/or maxlength) -->
                                       <span class="help-block has-error" ng-if="question.question.$dirty">
@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.timeperques.$invalid &&question.timeperques.$dirty}">
-                                    <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.timeperques" ng-pattern="/^[0-9]+$/" required>
+                                    <input type="text" name="timeperques" class="form-control" placeholder="Time For Each Question in Minutes (MM)" ng-model="questionForm.timeperques" ng-pattern="/^[0-9]+$/" required>
                                     <span class="help-block has-error" ng-if="question.timeperques.$dirty">
                                  <span ng-show="question.timeperques.$error.required">Time per question  is required.</span>
                                  <span ng-show="question.timeperques.$error.pattern">Input should be number.</span>
@@ -76,7 +76,7 @@
                           
                              <div class="form-group">
                                 <div class="col-md-offset-3 col-md-6" ng-class="{'has-error':question.quespertest.$invalid &&question.quespertest.$dirty}">
-                                    <input type="text" name="quespertest" class="form-control" placeholder="Time For Each Question" ng-model="questionForm.quespertest" ng-pattern="/^[0-9]+$/" required>
+                                    <input type="text" name="quespertest" class="form-control" placeholder="Question per Test" ng-model="questionForm.quespertest" ng-pattern="/^[0-9]+$/" required>
                                     <span class="help-block has-error" ng-if="question.quespertest.$dirty">
                                  <span ng-show="question.quespertest.$error.required">Question per test  is required.</span>
                                  <span ng-show="question.quespertest.$error.pattern">Input should be number.</span>
