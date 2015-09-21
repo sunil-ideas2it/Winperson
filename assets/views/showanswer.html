@@ -1,0 +1,37 @@
+<div ng-init="showAnswer()"> </div>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+
+                    <div class="col-sm-3" style="background-color:lavender;">
+                        <h>Name</h>
+                    </div>
+                    <div class="col-sm-3" style="background-color:lavenderblush;">
+                        <h>Email</h>
+                    </div>
+                    <div class="col-sm-3" style="background-color:lavender;">
+                        <h>Question</h>
+                    </div>
+                    <div class="col-sm-3" style="background-color:lavender;">
+                        <h>Answer</h>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div ng-repeat="answer in answers">
+                        <div class="col-sm-3 " style="background-color:lavender;">{{ answer.applicantName}}</div>
+                        <div class="col-sm-3" style="background-color:lavenderblush;">{{ answer.applicantEmail}}</div>
+                        <div class="col-sm-3" style="background-color:lavender;">{{ answer.question}}</div>
+                        <div class="col-sm-3" style="background-color:lavenderblush;"><a href="#/showVideo/{{ answer.videoFileName}}" target="_blank"> Click Here For Answer</a></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

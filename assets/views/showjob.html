@@ -1,0 +1,35 @@
+<div ng-init="showJob()"> </div>
+
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+
+
+                    <div class="col-sm-2" style="background-color:lavender;">
+                        <h>Job Id </h>
+                    </div>
+                    <div class="col-sm-5 text-center" style="background-color:lavenderblush;">
+                        <h> Title</h>
+                    </div>
+                    <div class="col-sm-5" style="background-color:lavender;">
+                        <h>Description</h>
+                    </div>
+
+
+                    <br>
+                    <br>
+
+                    <div ng-repeat="x in jobs">
+                        <div class="col-sm-2" style="background-color:lavender;">{{ x.id}} </div>
+                        <div class="col-sm-5 text-center" style="background-color:lavenderblush;"><a href="#/showanswer/{{ x.id}}"> {{ x.title}}</a></div>
+                        <div class="col-sm-5" style="background-color:lavender;">{{x.description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
