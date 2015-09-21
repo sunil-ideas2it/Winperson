@@ -15,12 +15,10 @@ angular.module('WinpersonApp').controller('testController', ['$scope', '$http', 
             })
             .then(function onSuccess(sailsResponse) {
             	$scope.user = sailsResponse.data;
-                console.log('---------data----------',sailsResponse);
                 window.location = '#/applicantsignup/'+$routeParams.token;
                 //window.location = '#/applicantsignup';
             })
             .catch(function onError(sailsResponse) {
-                console.log('----------sails error-------');
             	 
             	 if (sailsResponse.status === 400 || 404) {
                     // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';

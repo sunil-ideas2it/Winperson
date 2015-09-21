@@ -59,7 +59,7 @@ winperson.config(function ($routeProvider,$locationProvider) {
     })
         .when('/showVideo/:vname', {
       templateUrl: 'views/showVideo.html',
-      controller: 'showVideoController'
+      controller: 'ShowVideoController'
     })
       .when('/logout', {
       templateUrl: 'views/login.html',
@@ -68,10 +68,7 @@ winperson.config(function ($routeProvider,$locationProvider) {
       //otherwise( { redirectTo: '/' });
 }).run(['$location', '$rootScope', '$cookieStore', '$routeParams',function($location, $rootScope, $cookieStore,$routeParams) {
      $rootScope.loggedInUser = $cookieStore.get('user') || null;
-     //var token = $routeParams.token;
      var token = $location.path().split(/[\s/]+/).pop();
-
-     //console.log('-------------------token in run------------',$location.path(),token);
      $rootScope.$on('$locationChangeStart', function(event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
         var restrictedPage = $.inArray($location.path(), [ '/signup','/test/'+token,'/applicantsignup/'+token]) === -1;

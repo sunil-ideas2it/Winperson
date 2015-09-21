@@ -94,11 +94,7 @@
                 };
 
                 blobToBase64(blob, function(base64) { // encode
-                        console.log('------------base64----------', base64);
-                    if(i<$scope.quespertest){
-
-                        console.log('------------Hii--------',$scope.questions[i].question);
-
+                    if(i < $scope.quespertest){
                         $http.post('/video',{
                             blob:base64 ,
                             question: $scope.questions[i].question,
@@ -110,7 +106,6 @@
                                 i++;
                             })}
                     })
-                    //blobToBase64(player.recordedData,null);
             });
         
     }
@@ -120,7 +115,6 @@
         $rootScope.loggedInUser = null;
         $http.post('/startTest', {
                 id: $routeParams.id
-                    // console.log(eid);
             })
             .then(function onSuccess(sailsResponse) {
 
@@ -129,15 +123,11 @@
                 $scope.quespertest = (sailsResponse.data.jobObject.quespertest);
 
                 $scope.jobId = (sailsResponse.data.jobObject.id);
-                console.log('hiiiiiiiiiiiiiiiii', $scope.quespertest);
                 $scope.limit = timeperques * 5;
             })
-            .catch(function onError(sailsResponse) {
-                console.log('----------sails error-------');
-
+            .catch(function onError(sailsResponse) {;
                 if (sailsResponse.status === 400 || 404) {
-
-                    res.status(400).send('Something broke!');
+                   res.status(400).send('Something broke!');
                 }
 
             })

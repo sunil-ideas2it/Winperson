@@ -9,29 +9,24 @@ module.exports = {
         Job.find({}).exec(function findCB(err, found) {
 
             res.json({
-                  jobObject: found
+                jobObject: found
             });
-        
+
         });
 
     },
 
-
-
-
-
-
-
-
- getAnswer: function(req, res) {
+    getAnswer: function(req, res) {
         // Try to look up user using the provided email address
-        Answer.find({jobId:req.body.id }).exec(function findCB(err, found) {
-             console.log('hiii');
-             console.log(found)
+        Answer.find({
+            jobId: req.body.id
+        }).exec(function findCB(err, found) {
+            console.log('hiii');
+            console.log(found)
             res.json({
-                  answerObject: found
+                answerObject: found
             });
-        
+
         });
 
     },

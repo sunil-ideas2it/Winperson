@@ -113,10 +113,6 @@ module.exports = {
                         return res.ok();
                     });
                 } 
-                //console.log('We found ' + applicant.firstname);
-            //return res.ok();
-        
-
     });
    },
 
@@ -142,8 +138,6 @@ login: function(req, res) {
       },
 
   logout: function(req,res){
-    console.log('-----sinout server-------');
-
     req.logOut();
     return res.ok();
 

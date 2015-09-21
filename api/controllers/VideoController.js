@@ -11,17 +11,14 @@ var videoStringName;
 module.exports = {
 
     uploadvideo: function(req, res) {
-      console.log('------------update-----',req.body);
-        var buf = new Buffer(req.body.blob, 'base64'); // decode
-        //console.log('---buffer--------',buf);
-          videoStringName = randomstring.generate(8);
-          console.log('----videoStringName-------',videoStringName);
-          fs.writeFile("temp/" + videoStringName+".mp4", buf, function(err) {
+        var buf = new Buffer(req.body.blob, 'base64');
+         var videoStringName = randomstring.generate(8);
+          fs.writeFile("assets/video/" + videoStringName+".mp4", buf, function(err) {
             if(err) {
               console.log("err", err);
             }
           }) 
-     console.log('-----------Answer Foder----------');
+
       Invite.findOne({
             jobid: req.body.id
         }).exec(function findOneCB(err, applicantAnswer) {
@@ -41,19 +38,14 @@ module.exports = {
                             console.log(Answers);
                             console.log("err: ", err);
                             console.log("err.invalidAttributes: ", err.invalidAttributes)
-
-
                             // Otherwise, send back something reasonable as our error response.
                             return res.negotiate(err);
                         }
-
                         // Send back the id of the new user
                         return res.json(Answers);
                     });
                 }
               
-            
-            
         });
 
   }    
