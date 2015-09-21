@@ -5,8 +5,9 @@
  * @dated        : 27-08-2015
  * @description :: app.js is a angular routing for frontend.
  */
-var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo']);
-winperson.config(function ($routeProvider) {
+var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies']);
+winperson.config(function ($routeProvider,$locationProvider) {
+  //var token = $routeParams.id;
   $routeProvider
     .when('/', {
       templateUrl: 'views/login.html',
@@ -27,9 +28,13 @@ winperson.config(function ($routeProvider) {
       templateUrl: 'views/question.html',
       controller: 'questionsController'
     })
-      .when('/invite', {
+      .when('/invite/:jobidd', {
       templateUrl: 'views/invite.html',
       controller: 'invitesController'
+    })
+      .when('/startTest/:id', {
+      templateUrl: 'views/startTest.html',
+      controller: 'startTestController'
     })
       .when('/sendmails', {
       templateUrl: 'views/sendmail.html',
@@ -37,14 +42,30 @@ winperson.config(function ($routeProvider) {
     })
       .when('/test/:token', {
       templateUrl: 'views/test.html',
-      controller: 'testController'
+      controller: 'testController',
+      
     })
       .when('/applicantsignup/:token', {
       templateUrl: 'views/applicantsignup.html',
       controller: 'testController'
     })
       .when('/logout', {
-      templateUrl: 'views/login.html'
+      templateUrl: 'views/login.html',
+      controller: 'loginController'
+    });
+      //otherwise( { redirectTo: '/' });
+}).run(['$location', '$rootScope', '$cookieStore', '$routeParams',function($location, $rootScope, $cookieStore,$routeParams) {
+     $rootScope.loggedInUser = $cookieStore.get('user') || null;
+     //var token = $routeParams.token;
+     var token = $location.path().split(/[\s/]+/).pop();
+
+     //console.log('-------------------token in run------------',$location.path(),token);
+     $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        var restrictedPage = $.inArray($location.path(), [ '/signup','/test/'+token,'/applicantsignup/'+token]) === -1;
+        if (restrictedPage && $rootScope.loggedInUser == null) {
+            $location.path('/');
+        }
     });
 
-})
+}]);

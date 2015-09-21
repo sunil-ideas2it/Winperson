@@ -48,6 +48,7 @@
                                 </span>
                             </div>
                         </div>
+                       
                         <div class="form-group " ng-class="{'has-error':signup.firstname.$invalid &&signup.firstname.$dirty}" ng-show="!user.firstname">
                             <label class="col-md-3 control-label">First Name</label>
                             <div class="col-md-8">
@@ -58,7 +59,7 @@
                                 </span>
                             </div>
                         </div>
-                         <div class="form-group " ng-class="{'has-error':signup.lastname.$invalid &&signup.lastname.$dirty}" ng-show="!user.lastname">
+                         <div class="form-group " ng-class="{'has-error':signup.lastname.$invalid &&signup.lastname.$dirty}" ng-show="!user.firstname">
                             <label class="col-md-3 control-label">Last Name</label>
                             <div class="col-md-8">
                                 <!-- Added the compareTo directive that compares the passowrds -->

@@ -1,0 +1,33 @@
+<div ng-init="findJobId()"></div>
+<div class="container">
+
+    <div class="jumbotron">
+        <div class="pager">
+
+            <div ng-if="count>(quespertest-1)">
+                <h1>exam over</h1>
+            </div>
+
+            <div ng-if="(value > (timeperque*10) && count < (quespertest))">
+                <div ng-init="start()">
+                   
+                </div>
+            </div>
+
+            <div ng-init="start()">
+                <div ng-if="count < quespertest">
+                    <p>Time Remaining : {{limit-value}}</p>
+                    <h5>Q{{count+1}}.{{ questions[count].question}}</h5>
+                    <div id="video" ng-init="video()">
+                     <!--<video id="myVideo"  class="video-js vjs-default-skin"></video>-->
+                     </div>
+                 <!--<video id="myVideo" loop="true" class="video-js vjs-default-skin" ng-init="video()"></video>-->
+                </div><br><br><br><br><br>
+                <footer>
+                    <button ng-click="count = count + 1 ;value=0" class="btn btn-info btn-lg">NEXT</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -21,7 +21,7 @@
             fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
             controller will not be tied to this element. -->
                 <li>
-                    <a href="#/logout">Signout</a>
+                    <a href="#/logout" ng-click="signout()">Signout</a>
                 </li>
                 <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
                 <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-6 col-md-9">
-                                <button mean-token="'create-submit'" type="submit" class="btn btn-info">Next</button>
+                                <button mean-token="'create-submit'" type="submit" class="btn btn-info" ng-disabled="job.$invalid"><span ng-show="!jobForm.loading">Next</button>
                             </div>
                         </div>
                     </form>

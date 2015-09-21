@@ -30,7 +30,9 @@ var jsFilesToInject = [
   
   'bower_components/angular/angular.min.js',
   'bower_components/angular-route/angular-route.min.js',
+  'bower_components/angular-cookies/angular-cookies.min.js',
   'bower_components/angular-bootstrap-file-field/dist/angular-bootstrap-file-field.min.js',
+  'bower_components/jquery/dist/jquery.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

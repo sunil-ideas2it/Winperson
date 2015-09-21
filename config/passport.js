@@ -1,4 +1,4 @@
-var passport = require('passport'),
+  var passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
 bcrypt = require('bcrypt');
 
@@ -31,6 +31,7 @@ passport.use(new LocalStrategy({
             });
           var returnUser = {
             email: user.email,
+            role: user.role,
             createdAt: user.createdAt,
             id: user.id
           };

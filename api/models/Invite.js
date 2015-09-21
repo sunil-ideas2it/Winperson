@@ -17,10 +17,14 @@ module.exports = {
             //required: true
         },
         emailid: {
+            type: 'string'
+        },
+        contact: {
             type: 'string',
             required: true
         },
-        contact: {
+
+        jobid: {
             type: 'string',
             required: true
         },
