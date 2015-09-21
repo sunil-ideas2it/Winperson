@@ -92,13 +92,13 @@
                     };
                     reader.readAsDataURL(blob);
                 };
-
                 blobToBase64(blob, function(base64) { // encode
-                    if(i < $scope.quespertest){
+                    if(i<$scope.quespertest){
                         $http.post('/video',{
                             blob:base64 ,
                             question: $scope.questions[i].question,
-                            id: $scope.jobId
+                            id: $scope.jobId,
+                            userId: $routeParams.id
                             })
                             .success(function(new_recording) {
                                 //player.recorder.destroy();
@@ -109,6 +109,8 @@
             });
         
     }
+        
+    
 
     $scope.findJobId = function() {
         // Submit request to Sails.
