@@ -1,32 +1,58 @@
 <div ng-init="findJobId()"></div>
-<div class="container">
+<div class="container-fluid">
+    <!-- Creates the navbar -->
+    <nav class="navbar navbar-default navbar-inverse">
+        <!-- This creates the mechanism for collapse button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <!-- This controls the number of lines in the image when the nav collapse -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- This is the brand on the left-hand side. -->
+        <a class="navbar-brand" href="/#/"> Winperson</a>
 
+        <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <!-- This is what "styles" the li's as navbar items -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- navbar-right pulls this element right -->
+                <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+            fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+            controller will not be tied to this element. -->
+                <li>
+                    <a href="#/logout" ng-click="signout()">Signout</a>
+                </li>
+                <!-- <a ng-controller="signinController" class="btn btn-default navbar-btn navbar-right" href="#" ng-if="!isAuthenticated">sign-in</a> -->
+                <!-- Using ng-show instead of ng-if because we need this mark-up to be in the dom when signup controller
+            fires.  If it's not there (which it wouldn't be in the case of ng-if) then the scope of the signup
+            controller will not be tied to this element. -->
+            </ul>
+        </div>
+</nav>
     <div class="jumbotron">
         <div class="pager">
-
+        <p> Total Questions:{{quespertest}}</p>
+        <p> Remaining Questions:{{quespertest-count}}</p>
             <div ng-if="count>(quespertest-1)">
-                <h1>exam over</h1>
-            </div>
 
-            <div ng-if="(value > (timeperque*5) && count < (quespertest))">
-                <div ng-init="start()">
-                   
-                </div>
+                <h2>Thanks For Giving Test!!!</h2>
             </div>
-
-            <div ng-init="start()">
-                <div ng-if="count < quespertest">
+             <!--<div ng-init="start()">-->
+                <div ng-if="(count < quespertest)">
                     <p>Time Remaining : {{limit-value}}</p>
-                    <h5>Q{{count+1}}.{{ questions[count].question}}</h5>
-                    <div id="video" ng-init="video()">
+                    <h5><p ng-show="value>0">Q{{count+1}}.{{ questions[count].question}}</p></h5>
+                    <center><div id="video" ng-init="video()">
                      <!--<video id="myVideo"  class="video-js vjs-default-skin"></video>-->
-                     </div>
+                     </div></center>
                  <!--<video id="myVideo" loop="true" class="video-js vjs-default-skin" ng-init="video()"></video>-->
-                </div><br><br><br><br><br>
-                <footer>
-                    <button ng-click="count = count + 1 ;value=0" class="   btn btn-info btn-lg">NEXT</button>
-                </footer>
-            </div>
+                 <br><br><br>
+
+                <button ng-click="next()"  class="btn btn-primary btn-md" ng-show="count<quespertest-1" >NEXT</button>
+
+                </div>                           
+            <!--</div>-->
         </div>
     </div>
+</div>
 </div>

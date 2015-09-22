@@ -21,7 +21,6 @@ module.exports = {
         Answer.find({
             jobId: req.body.id
         }).exec(function findCB(err, found) {
-            console.log(found)
             res.json({
                 answerObject: found
             });
