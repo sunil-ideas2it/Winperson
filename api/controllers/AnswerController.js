@@ -33,7 +33,6 @@ module.exports = {
         Answer.find({
             videoFileName: req.body.videoFileName
         }).exec(function findCB(err, found) {
-            console.log(found)
             res.json(found);
 
         });

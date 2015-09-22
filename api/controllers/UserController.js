@@ -25,7 +25,7 @@ module.exports = {
             if (err) {
                 console.log(newUser);
                 console.log("err: ", err);
-                console.log("err.invalidAttributes: ", err.invalidAttributes)
+                console.log("err.invalidAttributes: ", err.invalidAttributes);
 
                 // If this is a uniqueness error about the email attribute,
                 // send back an easily parseable status code.
@@ -70,7 +70,7 @@ module.exports = {
                         if (err) {
                             console.log(newUser);
                             console.log("err: ", err);
-                            console.log("err.invalidAttributes: ", err.invalidAttributes)
+                            console.log("err.invalidAttributes: ", err.invalidAttributes);
 
                             // If this is a uniqueness error about the email attribute,
                             // send back an easily parseable status code.
@@ -97,7 +97,7 @@ module.exports = {
                         if (err) {
                             console.log(newUser);
                             console.log("err: ", err);
-                            console.log("err.invalidAttributes: ", err.invalidAttributes)
+                            console.log("err.invalidAttributes: ", err.invalidAttributes);
 
                             // If this is a uniqueness error about the email attribute,
                             // send back an easily parseable status code.

@@ -16,7 +16,7 @@ module.exports = {
                 if (err) {
                     console.log("err", err);
                 }
-            })
+            });
 
 
             User.findOne({
@@ -46,7 +46,7 @@ module.exports = {
                                     if (err) {
                                         console.log(Answers);
                                         console.log("err: ", err);
-                                        console.log("err.invalidAttributes: ", err.invalidAttributes)
+                                        console.log("err.invalidAttributes: ", err.invalidAttributes);
                                             // Otherwise, send back something reasonable as our error response.
                                         return res.negotiate(err);
                                     }

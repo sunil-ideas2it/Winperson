@@ -37,7 +37,7 @@ module.exports = {
             // see console for more info
 
             //move file to cloudinary or something
-            console.log('uploaded file path', files[0].fd)
+            console.log('uploaded file path', files[0].fd);
 
 
             var stream = fs.createReadStream(files[0].fd);
@@ -57,7 +57,7 @@ module.exports = {
                             if (err) {
 
                                 console.log("err: ", err);
-                                console.log("err.invalidAttributes: ", err.invalidAttributes)
+                                console.log("err.invalidAttributes: ", err.invalidAttributes);
 
 
                                 // Otherwise, send back something reasonable as our error response.
