@@ -10,7 +10,7 @@ angular.module('WinpersonApp').controller('jobController', ['$scope', '$http', '
     // set-up loading state
     $scope.signupForm = {
         loading: false
-    }
+    };
     $scope.submitJobForm = function() {
 
         // Set the loading state (i.e. show loading spinner)
@@ -24,9 +24,9 @@ angular.module('WinpersonApp').controller('jobController', ['$scope', '$http', '
                 salary: $scope.jobForm.salary
             })
             .then(function onSuccess(sailsResponse) {
-                var id = sailsResponse.data.id
+                var id = sailsResponse.data.id;
                 $location.path('/question/' + id);
-            })
+            });
 
-    }
+    };
 }]);

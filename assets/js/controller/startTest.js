@@ -104,11 +104,11 @@
                                 //player.recorder.destroy();
                                 console.log("success");
                                 i++;
-                            })}
-                    })
+                            })};
+                    });
             });
         
-    }
+    };
         
     
 
@@ -127,12 +127,12 @@
                 $scope.jobId = (sailsResponse.data.jobObject.id);
                 $scope.limit = timeperques * 5;
             })
-            .catch(function onError(sailsResponse) {;
+            .catch(function onError(sailsResponse) {
                 if (sailsResponse.status === 400 || 404) {
                    res.status(400).send('Something broke!');
                 }
 
-            })
-    }
+            });
+    };
 
 }]);

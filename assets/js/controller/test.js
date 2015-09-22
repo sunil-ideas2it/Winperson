@@ -27,8 +27,8 @@ angular.module('WinpersonApp').controller('testController', ['$scope', '$http', 
                 }
                 // Handle known error type(s).
                 // If using sails-disk adpater -- Handle Duplicate Key
-            })
-    }
+            });
+    };
     $scope.submitApplicantSignupForm = function() {
         // Submit request to Sails.
         $rootScope.loggedInUser = null;
@@ -43,7 +43,7 @@ angular.module('WinpersonApp').controller('testController', ['$scope', '$http', 
             })
             .catch(function onError(sailsResponse) {
 
-            })
+            });
            
     };
 }]);

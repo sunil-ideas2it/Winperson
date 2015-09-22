@@ -10,7 +10,7 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
     // set-up loginForm loading state
     $scope.loginForm = {
         loading: false
-    }
+    };
    $rootScope.loggedInUser = $cookieStore.get('user') || null; 
     $scope.submitLoginForm = function() {
 
@@ -61,7 +61,7 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
             .finally(function eitherWay() {
                 $scope.loginForm.loading = false;
             });
-    }
+    };
 
      $scope.signout = function() {
 
@@ -72,7 +72,7 @@ angular.module('WinpersonApp').controller('loginController', ['$scope','$locatio
                 // Refresh the page now that we've been logged in.
                     $rootScope.loggedInUser = null;
                     $cookieStore.remove('user');                              
-            })
+            });
 
    };
 

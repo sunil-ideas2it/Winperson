@@ -10,7 +10,7 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
     // set-up loading state
     $scope.signupForm = {
         loading: false
-    }
+    };
     /*$scope.signupForm.password = '';
     $scope.$watch('signupForm.password', function() {
         $scope.signupForm.password = $scope.signupForm.password.replace(/\s+/g,'');
@@ -42,6 +42,6 @@ angular.module('WinpersonApp').controller('signupController', ['$scope', '$http'
             })
             .finally(function eitherWay() {
                 $scope.signupForm.loading = false;
-            })
+            });
     };
 }]);

@@ -10,7 +10,7 @@ angular.module('WinpersonApp').controller('questionsController', ['$scope', '$ht
     $scope.submitQuestionForm = function() {
         // Submit request to Sails.
 
-        var arrayOfObjects = JSON.parse($scope.questionForm.question)
+        var arrayOfObjects = JSON.parse($scope.questionForm.question);
         console.log(arrayOfObjects);
         $http.post('/questions', {
                 question: arrayOfObjects,
@@ -21,6 +21,6 @@ angular.module('WinpersonApp').controller('questionsController', ['$scope', '$ht
             .then(function onSuccess(sailsResponse) {
                 jobidd=sailsResponse.data;
                 window.location = ('#/invite/'+jobidd);
-            })
-    }
+            });
+    };
 }]);

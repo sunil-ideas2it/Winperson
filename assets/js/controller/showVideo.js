@@ -9,5 +9,5 @@ angular.module('WinpersonApp').controller('ShowVideoController', ['$scope', '$ht
     	//console.log('-----------applicant data-------',sailsResponse.data[0]);
         $scope.applicant= sailsResponse.data[0];
         //console.log('-------scope data-------',$scope.applicant.applicantName);
-     })
+     });
 }]);

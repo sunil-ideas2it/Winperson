@@ -44,7 +44,7 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse',function($parse)
                 alert('there was an error uploading the file.');
                 console.log(err);
             });
-    }
+    };
 }])
 
 .controller('invitesController', ['$scope', '$http', 'fileUpload', function($scope, $http, fileUpload) {
@@ -63,7 +63,7 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse',function($parse)
         var uploadUrl = "/invites";
         fileUpload.uploadFileToUrl(file, uploadUrl);
 
-    }
+    };
 
     $scope.sendEmailto = function() {
 
@@ -90,7 +90,7 @@ angular.module('WinpersonApp').directive('fileModel', ['$parse',function($parse)
             })
             .finally(function eitherWay() {
                 $scope.emailForm.loading = false;
-            })
+            });
     };
 
 }]);
