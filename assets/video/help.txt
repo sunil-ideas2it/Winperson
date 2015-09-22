@@ -1,0 +1,1 @@
+* All the video file will be ignore while commit.

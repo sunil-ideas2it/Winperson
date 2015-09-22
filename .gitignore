@@ -68,7 +68,6 @@ config/local.js
 
 node_modules
 bower_components
-video
 
 
 
@@ -97,6 +96,7 @@ lib-cov
 *.log
 *.out
 *.pid
+*.mp4
 npm-debug.log
 
 
