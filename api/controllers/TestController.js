@@ -17,12 +17,11 @@ module.exports = {
             token: req.body.token
         }).exec(function findOneCB(err, applicant) {
             if (err) {
-                alert('Sorry!!!! You are not Authorized');
                 return res.notFound();
             }
             if(applicant){
               console.log('We found ' + applicant.firstname);
-              return res.json(applicant);//res.ok();
+              return res.json(applicant);
             }
             
         });

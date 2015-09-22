@@ -5,6 +5,7 @@
     var timeperques = 0;
     $scope.value = 0;
     $scope.count = 0;
+    $scope.player;
     $scope.questions = null;
     $scope.quespertest=null;
     var i=0;
@@ -24,6 +25,7 @@
 
     $scope.start = function() {
 
+
         countdown();
     };
 
@@ -31,19 +33,16 @@
         $timeout.cancel($scope.timeout);
     };
 
-    $scope.player = {};
+    
     $scope.video = function() {
        
         if (document.getElementById('myVideo')) {
            
             var videoElem = document.getElementById("myVideo");
-            
             videoElem.parentNode.removeChild(videoElem);
             $scope.player.recorder.destroy();
             
-        } 
-             
-           
+        }                         
             var videostr = '<video id="myVideo" class="video-js vjs-default-skin" ng-init="video()"></video>';
             var myEl = angular.element(document.querySelector('#video'));
             myEl.append(videostr);
@@ -95,7 +94,7 @@
                 blobToBase64(blob, function(base64) { // encode
                     if(i<$scope.quespertest){
                         $http.post('/video',{
-                            blob:base64 ,
+                            blob:base64,
                             question: $scope.questions[i].question,
                             id: $scope.jobId,
                             userId: $routeParams.id
@@ -106,12 +105,9 @@
                                 i++;
                             })}
                     })
-            });
-        
+            });        
     }
         
-    
-
     $scope.findJobId = function() {
         // Submit request to Sails.
         $rootScope.loggedInUser = null;
@@ -123,7 +119,6 @@
                 $scope.questions = sailsResponse.data.questionObject;
                 timeperques = ($scope.timeperque = sailsResponse.data.jobObject.timeperques);
                 $scope.quespertest = (sailsResponse.data.jobObject.quespertest);
-
                 $scope.jobId = (sailsResponse.data.jobObject.id);
                 $scope.limit = timeperques * 5;
             })

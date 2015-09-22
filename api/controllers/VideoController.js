@@ -28,7 +28,6 @@ module.exports = {
                         return res.notFound();
                     }
                     if (userFound) {
-                    console.log('hiiiiiiiiiiiiii',userFound.email);
                      Invite.findOne({
                             jobid: req.body.id
                         }).exec(function findOneCB(err, applicantAnswer) {

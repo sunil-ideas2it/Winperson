@@ -13,7 +13,6 @@ module.exports = {
         applicantEmail: {
             type: 'email'
         },
-
         question: {
             type: 'string'
         },

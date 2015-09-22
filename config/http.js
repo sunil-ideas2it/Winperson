@@ -10,6 +10,14 @@
  */
 
 module.exports.http = {
+  bodyParser: function () {
+      var opts = {limit:'50mb'};
+      var fn;
+
+      // Default to built-in bodyParser:
+      fn = require('skipper');
+      return fn(opts);
+    },
      middleware: {
 
     passportInit    : require('passport').initialize(),
