@@ -28,6 +28,17 @@ module.exports = {
         });
 
     },
+     getUserDetail: function(req, res) {
+        // Try to look up user using the provided email address
+        Answer.find({
+            videoFileName: req.body.videoFileName
+        }).exec(function findCB(err, found) {
+            console.log(found)
+            res.json(found);
+
+        });
+
+    }
 
 
 };

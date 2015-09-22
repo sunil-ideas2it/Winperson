@@ -18,3 +18,28 @@
         <center><a vi-full-screen-toggle>Toggle Full-Screen!</a></center>
     </section>
 </section>
+<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+
+                    <div class="col-sm-4" style="background-color:lavender" align="center">
+                        <h4>Applicant Name</h4>
+                    </div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;" align="center">
+                        <h4>Applicant Email</h4>
+                    </div>
+                    <div class="col-sm-4" style="background-color:lavender;" align="center">
+                        <h4>Job Id</h4>
+                    </div>
+
+                    <br><br><br>
+
+                        <div class="col-sm-4 " style="background-color:lavender;" align="center">{{ applicant.applicantName}}</div>
+                        <div class="col-sm-4" style="background-color:lavenderblush;" align="center">{{applicant.applicantEmail}}</div>
+                        <div class="col-sm-4" style="background-color:lavender;" align="center">{{applicant.jobId}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
