@@ -104,7 +104,8 @@
                                 //player.recorder.destroy();
                                 console.log("success");
                                 i++;
-                            })};
+                            });
+                        }
                     });
             });
         
