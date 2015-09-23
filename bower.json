@@ -25,6 +25,6 @@
     "ngvideo": "~0.4.13"
   },
   "resolutions": {
-    "angular": "1.4.5"
+    "angular": "~1.4.4"
   }
 }
