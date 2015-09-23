@@ -5,6 +5,8 @@ module.exports = function (grunt) {
 		'less:dev',
 		'copy:dev',
 		'coffee:dev',
+		'eslint:dev',
+		'jscs:dev',
 		'jshint:dev',
 	]);
 };

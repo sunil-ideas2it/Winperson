@@ -4,6 +4,8 @@ module.exports = function (grunt) {
 		'less:dev',
 		'sync:dev',
 		'coffee:dev',
+		'eslint:dev',
+		'jscs:dev',
 		'jshint:dev',
 	]);
 };

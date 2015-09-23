@@ -2,7 +2,7 @@
 
 A [Sails](http://sailsjs.org) application
 
-Winperson is web application for providing interview platform. Winperson is developed with nodejs,angularjs,mysql,passport authentication.We are using sails.js framework to develop winperson
+Winperson is web application for providing interview platform. Winperson is developed with nodejs, angularjs, mysql, passport authentication. We are using sails.js framework to develop winperson
 
 ##Prerequisite Technologies
 * Node.js - [Download](https://nodejs.org/en/) and Install Node.js

@@ -45,10 +45,8 @@ module.exports.connections = {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'user',
+    password: 'root',
     database: 'win',  
-    charset   : 'utf8',
-    collation : 'utf8_swedish_ci'
   },
 
   /***************************************************************************

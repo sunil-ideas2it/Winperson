@@ -7,7 +7,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 module.exports = {
-
+	/* jshint loopfunc:true */
     create: function(req, res) {
 
         var reqStr = JSON.stringify(req.body);
