@@ -7,6 +7,9 @@
 module.exports = {
 
     attributes: {
+        applicantId: {
+            type: 'string'
+        },
         applicantName: {
             type: 'string'
         },

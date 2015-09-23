@@ -6,8 +6,6 @@ angular.module('WinpersonApp').controller('ShowVideoController', ['$scope', '$ht
     	 videoFileName : $routeParams.vname
     })
     .then(function onSuccess(sailsResponse) {
-    	//console.log('-----------applicant data-------',sailsResponse.data[0]);
         $scope.applicant= sailsResponse.data[0];
-        //console.log('-------scope data-------',$scope.applicant.applicantName);
      });
 }]);

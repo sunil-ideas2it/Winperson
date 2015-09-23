@@ -37,6 +37,7 @@ module.exports = {
                             }
                             if (applicantAnswer) {
                                 Answer.create({
+                                    applicantId:   userFound.id,
                                     applicantName: userFound.name,
                                     applicantEmail: userFound.email,
                                     question: req.body.question,

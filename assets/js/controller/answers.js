@@ -24,11 +24,12 @@ angular.module('WinpersonApp').controller('AnswerController', ['$scope', '$http'
             })
             .then(function onSuccess(sailsResponse) {
                 $scope.answers = sailsResponse.data.answerObject;
+                console.log('--------------answers--------------',sailsResponse.data.answerObject);
             })
             .catch(function onError(sailsResponse) {
                 if (sailsResponse.status === 400 || 404) {
                     res.status(400).send('Something broke!');
                 }
             });
-    };
+    };  
 }]);
