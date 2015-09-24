@@ -8,14 +8,14 @@
  */
 module.exports = {
 
-    attributes: {
+  attributes: {
 
-        question: {
-            type: 'string'
-        },
-        jobid:{
-        	type: 'string'
-        }
+    question: {
+      type: 'string',
+    },
+    jobid: {
+      type: 'string',
+    },
 
-    }
+  },
 };

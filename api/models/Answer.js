@@ -6,26 +6,26 @@
  */
 module.exports = {
 
-    attributes: {
-        applicantId: {
-            type: 'string'
-        },
-        applicantName: {
-            type: 'string'
-        },
-        applicantEmail: {
-            type: 'email'
-        },
-        question: {
-            type: 'string'
-        },
-        videoFileName: {
-            type: 'string'
-        },
-        jobId: {
-            type: 'string'
-        }
+  attributes: {
+    applicantId: {
+      type: 'string',
+    },
+    applicantName: {
+      type: 'string',
+    },
+    applicantEmail: {
+      type: 'email',
+    },
+    question: {
+      type: 'string',
+    },
+    videoFileName: {
+      type: 'string',
+    },
+    jobId: {
+      type: 'string',
+    },
 
 
-    }
+  },
 };

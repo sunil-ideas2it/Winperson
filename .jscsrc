@@ -17,7 +17,7 @@
   "disallowYodaConditions": true,
   "maximumLineLength": 110,
   "requireBlocksOnNewline": true,
-  "requireCapitalizedComments": true,
+  "requireCapitalizedComments": false,
   "requireCapitalizedConstructors": true,
   "requireCommaBeforeLineBreak": true,
   "requireFunctionDeclarations": true,

@@ -34,6 +34,7 @@ var jsFilesToInject = [
   'bower_components/angular-bootstrap-file-field/dist/angular-bootstrap-file-field.min.js',
   'bower_components/jquery/dist/jquery.min.js',
    'bower_components/ngvideo/dist/ng-video.min.js',
+   'bower_components/angular-base64/angular-base64.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
