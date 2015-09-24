@@ -5,7 +5,7 @@
  * @dated        : 27-08-2015
  * @description :: app.js is a angular routing for frontend.
  */
-var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies','ngVideo']);
+var winperson = angular.module('WinpersonApp', ['ngRoute','toastr','compareTo','ngCookies','ngVideo','ngGrid']);
 winperson.config(function ($routeProvider,$locationProvider) {
   //var token = $routeParams.id;
   $routeProvider
@@ -21,7 +21,7 @@ winperson.config(function ($routeProvider,$locationProvider) {
       templateUrl: 'views/dashboard.html'
     })
      .when('/job/:id', {
-      templateUrl: 'views/job.html',	
+      templateUrl: 'views/job.html',
       controller: 'jobController'
     })
       .when('/question/:id', {
@@ -43,7 +43,7 @@ winperson.config(function ($routeProvider,$locationProvider) {
       .when('/test/:token', {
       templateUrl: 'views/test.html',
       controller: 'testController',
-      
+
     })
       .when('/applicantsignup/:token', {
       templateUrl: 'views/applicantsignup.html',
@@ -53,13 +53,17 @@ winperson.config(function ($routeProvider,$locationProvider) {
       templateUrl: 'views/showjob.html',
       controller: 'AnswerController'
     })
-       .when('/showanswer/:id', {
+       .when('/showanswer/:jobid/:userid', {
       templateUrl: 'views/showanswer.html',
       controller: 'AnswerController'
     })
         .when('/showVideo/:vname', {
       templateUrl: 'views/showVideo.html',
       controller: 'ShowVideoController'
+    })
+       .when('/showApplicant/:id', {
+      templateUrl: 'views/showApplicant.html',
+      controller: 'AnswerController'
     })
       .when('/logout', {
       templateUrl: 'views/login.html',

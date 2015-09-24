@@ -41,12 +41,14 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   mysql: {
-     adapter: 'sails-mysql',
+    adapter: 'sails-mysql',
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'root',
-    database: 'win',  
+    password: 'user',
+    database: 'win',
+    charset   : 'utf8',
+    collation : 'utf8_swedish_ci'
   },
 
   /***************************************************************************

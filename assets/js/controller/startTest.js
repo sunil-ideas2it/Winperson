@@ -22,7 +22,7 @@
             $scope.video();
         }
     }
-   
+
     $scope.next = function() {
             $scope.flag=0;
             $scope.value = 0;
@@ -31,17 +31,17 @@
     };
 
     $scope.video = function() {
-       
+
         if (document.getElementById('myVideo')) {
-           
+
             var videoElem = document.getElementById("myVideo");
-            
+
             videoElem.parentNode.removeChild(videoElem);
             $scope.player.recorder.destroy();
-            
-        } 
-             
-           
+
+        }
+
+
             var videostr = '<video id="myVideo" class="video-js vjs-default-skin" ng-init="video()"></video>';
             var myEl = angular.element(document.querySelector('#video'));
             myEl.append(videostr);
@@ -108,10 +108,10 @@
                         }
                     });
             });
-        
+
     };
-        
-    
+
+
 
     $scope.findJobId = function() {
         // Submit request to Sails.

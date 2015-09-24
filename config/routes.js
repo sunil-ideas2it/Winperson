@@ -47,10 +47,11 @@ module.exports.routes = {
   'GET /showJob' : 'AnswerController.getJob',
   'POST /showAnswer' : 'AnswerController.getAnswer',
   'POST /getUserDetail' : 'AnswerController.getUserDetail',
-  'PUT /logout' : 'UserController.logout'
-  
+  'PUT /logout' : 'UserController.logout',
+  'POST /showApplicant' : 'AnswerController.getApplicant'
+
   /* 'GET /dashboard': {
-    view: 'adminpage'  
+    view: 'adminpage'
   }*/
 
 

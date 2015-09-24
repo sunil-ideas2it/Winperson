@@ -17,8 +17,7 @@ module.exports = {
             //required: true
         },
         emailid: {
-            type: 'string',
-            required: true
+            type: 'string'
         },
         contact: {
             type: 'string',
@@ -32,6 +31,14 @@ module.exports = {
         token: {
             type: 'string',
             unique: true
+        },
+        status: {
+            type: 'string',
+            defaultsTo: 'NotAttend'
+        },
+        applicantId: {
+            type: 'string',
+            defaultsTo: 'NotRegister'
         }
     }
 };
