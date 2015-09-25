@@ -1,3 +1,10 @@
+/**
+ * showvideo.js
+ *
+ * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
+ * @description :: showVideo is a angular controller through which req are send to sails controller .
+ */
 angular.module('WinpersonApp').controller('ShowVideoController',
 	[
 	'$scope',

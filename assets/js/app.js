@@ -1,5 +1,5 @@
 /**
- * App.js
+ * app.js
  *
  * @author      :: Sunil Hirole
  * @dated        : 27-08-2015
@@ -12,10 +12,10 @@ var winperson = angular.module('WinpersonApp',
   'compareTo',
   'ngCookies',
   'ngVideo',
-  'base64',
+  'ngGrid',
   ]);
 winperson.config(function ($routeProvider, $locationProvider) {
-  //Var token = $routeParams.id;
+  //var token = $routeParams.id;
   $routeProvider
     .when('/', {
       templateUrl: 'views/login.html',
@@ -61,7 +61,7 @@ winperson.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/showjob.html',
       controller: 'AnswerController',
     })
-       .when('/showanswer/:id', {
+       .when('/showanswer/:jobid/:userid', {
       templateUrl: 'views/showanswer.html',
       controller: 'AnswerController',
     })
@@ -69,11 +69,15 @@ winperson.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/showVideo.html',
       controller: 'ShowVideoController',
     })
+       .when('/showApplicant/:id', {
+      templateUrl: 'views/showApplicant.html',
+      controller: 'AnswerController',
+    })
       .when('/logout', {
       templateUrl: 'views/login.html',
       controller: 'loginController',
     });
-  //Otherwise( { redirectTo: '/' });
+  //otherwise( { redirectTo: '/' });
 }).run(
 [
 '$location',
@@ -84,13 +88,13 @@ function($location, $rootScope, $cookieStore, $routeParams) {
   $rootScope.loggedInUser = $cookieStore.get('user') || null;
   var token = $location.path().split(/[\s/]+/).pop();
   $rootScope.$on('$locationChangeStart', function(event, next, current) {
-    // Redirect to login page if not logged in and trying to access a restricted page
+    // redirect to login page if not logged in and trying to access a restricted page
     var restrictedPage = $.inArray($location.path(),
-      [
-      '/signup',
-      '/test/' + token,
-      '/applicantsignup/' + token,
-      ]) === -1;
+  [
+  '/signup',
+  '/test/' + token,
+  '/applicantsignup/' + token,
+  ]) === -1;
     if (restrictedPage && $rootScope.loggedInUser === null) {
       $location.path('/');
     }

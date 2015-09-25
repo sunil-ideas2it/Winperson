@@ -30,8 +30,8 @@ module.exports = {
         // If this is a uniqueness error about the email attribute,
         // send back an easily parseable status code.
         if (err.invalidAttributes && err.invalidAttributes.email &&
-            err.invalidAttributes.email[0] &&
-            err.invalidAttributes.email[0].rule === 'unique') {
+          err.invalidAttributes.email[0] &&
+          err.invalidAttributes.email[0].rule === 'unique') {
           return res.emailAddressInUse();
         }
 
@@ -77,13 +77,21 @@ module.exports = {
             // If this is a uniqueness error about the email attribute,
             // send back an easily parseable status code.
             if (err.invalidAttributes && err.invalidAttributes.email &&
-            err.invalidAttributes.email[0] && err.invalidAttributes.email[0].rule === 'unique') {
+              err.invalidAttributes.email[0] &&
+              err.invalidAttributes.email[0].rule === 'unique') {
               return res.emailAddressInUse();
             }
 
             // Otherwise, send back something reasonable as our error response.
             return res.negotiate(err);
           }
+          Invite.update({
+            emailid: applicant.emailid,
+          }, {
+            applicantId: newUser.id,
+          }).exec(function(e1, r1) {
+            return res.ok();
+          });
 
           // Send back the id of the new user
           return res.ok();
@@ -105,14 +113,21 @@ module.exports = {
             // If this is a uniqueness error about the email attribute,
             // send back an easily parseable status code.
             if (err.invalidAttributes && err.invalidAttributes.email &&
-               err.invalidAttributes.email[0] &&
-               err.invalidAttributes.email[0].rule === 'unique') {
+              err.invalidAttributes.email[0] &&
+              err.invalidAttributes.email[0].rule === 'unique') {
               return res.emailAddressInUse();
             }
 
             // Otherwise, send back something reasonable as our error response.
             return res.negotiate(err);
           }
+          Invite.update({
+            emailid: applicant.emailid,
+          }, {
+            applicantId: newUser.id,
+          }).exec(function(e1, r1) {
+            return res.ok();
+          });
 
           // Send back the id of the new user
           return res.ok();
@@ -127,7 +142,11 @@ module.exports = {
    */
   login: function(req, res) {
     // Try to look up user using the provided email address
+
     passport.authenticate('local', function(err, user, info) {
+      console.log(err);
+      console.log(user);
+      console.log(info);
       if ((err) || (!user)) {
         return res.notFound();
       }

@@ -1,3 +1,9 @@
+    /**
+ * StartTest.js
+ * @author      :: Sunil Hirole
+ * @dated        : 27-08-2015
+ * @description :: startTest.js is a angular controller through which req are send to sails controller .
+ */
     angular.module('WinpersonApp').controller('startTestController',
         [
         '$scope',
@@ -6,8 +12,7 @@
         '$routeParams',
         '$rootScope',
         '$cookieStore',
-        '$base64',
-        function($scope, $http, $timeout, $routeParams, $rootScope, $cookieStore, $base64) {
+        function($scope, $http, $timeout, $routeParams, $rootScope, $cookieStore) {
 
 
           $rootScope.loggedInUser = null;

@@ -15,7 +15,8 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+  'styles/**/*.css',
+  'bower_components/ng-grid/ng-grid.css',
 ];
 
 
@@ -33,8 +34,10 @@ var jsFilesToInject = [
   'bower_components/angular-cookies/angular-cookies.min.js',
   'bower_components/angular-bootstrap-file-field/dist/angular-bootstrap-file-field.min.js',
   'bower_components/jquery/dist/jquery.min.js',
-   'bower_components/ngvideo/dist/ng-video.min.js',
-   'bower_components/angular-base64/angular-base64.js',
+  'bower_components/ngvideo/dist/ng-video.min.js',
+  'bower_components/ng-grid/build/ng-grid.min.js',
+  'bower_components/ng-grid/build/ng-grid.debug.js',
+  'bower_components/angular-ui-grid/ui-grid.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

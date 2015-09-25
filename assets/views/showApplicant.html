@@ -10,6 +10,7 @@
         </button>
         <!-- This is the brand on the left-hand side. -->
         <a class="navbar-brand" href="/#/"> Winperson</a>
+        <a class="navbar-brand" href="/#/showJob"> Job List</a>
 
         <!-- This is what is the above collapse button points to when the mark-up below is collapsed -->
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
@@ -30,15 +31,15 @@
             </ul>
         </div>
     </nav>
-    <div ng-init="showJob()"></div>
-    <div class="page-header">
-      <h2>Jobs</h2>
-    </div>
-    <div class="jumbotron">
+<div ng-init="showApplicant()"> </div>
+<div class="page-header">
+  <h2>Invites</h2>
+</div>
+<div class="jumbotron">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-           <div class="gridStyle" ng-grid="gridOptions"></div>
+            <div class="gridStyle" ng-grid="gridOptions"></div>
         </div>
     </div>
-    </div>
+</div>
 </div>

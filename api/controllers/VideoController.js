@@ -51,6 +51,16 @@ module.exports = {
                 // Otherwise, send back something reasonable as our error response.
                 return res.negotiate(err);
               }
+              Invite.update({
+                jobid: req.body.id,applicantId: userFound.id,
+              }, {
+                status: 'Attend',
+              }).exec(function(e1, r1) {
+                if (e1) {
+                  return res.notFound();
+                }
+                return res.ok();
+              });
               // Send back the id of the new user
               return res.json(Answers);
             });
