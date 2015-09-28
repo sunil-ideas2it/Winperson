@@ -10,7 +10,7 @@
  * http://sailsjs.org/#!/documentation/concepts/Logging
  */
 
-module.exports.log = {
+/*module.exports.log = {
 
   /***************************************************************************
   *                                                                          *
@@ -24,6 +24,50 @@ module.exports.log = {
   *                                                                          *
   ***************************************************************************/
 
-  level: 'verbose'
+  /*level: 'verbose'
 
+};*/
+var winston = require('winston');
+module.exports = {
+  'log': {
+    'colors': false,
+    'custom': new (winston.Logger)({
+      'transports': [
+                new (winston.transports.Console)({
+                  'level': 'verbose',
+                  'colorize': true,
+                  'timestamp': false,
+                  'json': false,
+                }),
+                new winston.transports.DailyRotateFile({
+                  'level': 'error',
+                  'colorize': true,
+                  'timestamp': true,
+                  'json': true,
+                  'filename': './logs/sails.log',
+                  'maxsize': 5120000,
+                  'maxFiles': 3,
+                })
+            ]
+    })
+  }
 };
+/*var winston = require('winston');
+var wLogger = new (winston.Logger)({
+        exitOnError: false,
+        transports: [
+            new winston.transports.File({
+                filename: './logs/sails.log',
+                json: true,
+                level: 'silly'
+            })
+        ],
+        timestamp: true
+    });
+wLogger.log = wLogger.log;
+module.exports.log = {
+    level: 'silly',
+    colors: false,
+    custom: wLogger,
+    wLogger: wLogger
+};*/

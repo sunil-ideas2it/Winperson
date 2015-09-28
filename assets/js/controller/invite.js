@@ -45,7 +45,7 @@ angular.module('WinpersonApp').directive('fileModel',
               if (data.result) {
 
                 alert('file uploaded. See .tmp/uploads folder.');
-                window.location = '#/job';
+                window.location = '#/showJob';
               }
             })
             .error(function(err) {
@@ -88,7 +88,7 @@ angular.module('WinpersonApp').directive('fileModel',
       email: $scope.emailForm.email,
     })
             .then(function onSuccess(sailsResponse) {
-              window.location = '#/job';
+              window.location = '#/showJob';
             })
             .catch(function onError(sailsResponse) {
 

@@ -97,6 +97,7 @@ lib-cov
 *.out
 *.pid
 *.mp4
+*.log
 npm-debug.log
 
 

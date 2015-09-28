@@ -31,22 +31,39 @@
             </ul>
         </div>
     </nav>
-<div ng-init="showAnswer()"></div>
-<div class="page-header">
-  <h2>Applicant Details</h2>
-</div>
-<div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <!--left col-->
-            <ul class="list-group">
-                <li class="list-group-item text-muted" contenteditable="false">Applicant Details</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Name</strong></span>{{answers[0].applicantName}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email Id</strong></span> {{answers[0].applicantEmail}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Job Id</strong></span> {{answers[0].jobId}}</li>
-              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Status</strong></span>Attend</li>
-            </ul>
-            <div class="gridStyle" ng-grid="gridOptions" style="margin-left:5px;"></div>
+    <div ng-init="showAnswer()"></div>
+    <div class="page-header">
+        <h2>Applicant Details</h2>
     </div>
-</div>
+
+    <section class="video" ng-video>
+        <center>
+            <video vi-screen></video>
+        </center>
+
+        <section vi-controls vi-feedback vi-volume>
+            <center>
+                <button vi-controls-play>Play</button>
+                <button vi-controls-pause>Pause</button>
+                <button vi-full-screen-toggle>Full-Screen</button>
+                <button vi-volume-decrease>Volume(-)</button>
+                <button vi-volume-increase>Volume(+)</button>
+                <button vi-volume-mute>Mute</button>
+                <button vi-volume-loudest>Loudest</button>
+                Time: {{currentTime}}s / {{duration}}s
+            </center>
+        </section>
+        <section vi-playlist>
+            <ul vi-playlist-video ng-repeat="video in videos" ng-model="video" ng-init="last();">
+                <!--<li vi-playlist-video ng-repeat="video in videos" ng-model="video" ng-init="last();"></li>-->
+            </ul>
+        </section>
+    </section>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="gridStyle" ng-grid="gridOptions" style="margin-left:5px;margin-top:30px;"></div>
+        </div>
+    </div>
 
 </div>

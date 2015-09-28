@@ -46,7 +46,6 @@ module.exports.routes = {
   'POST /video': 'VideoController.uploadvideo',
   'GET /showJob' : 'AnswerController.getJob',
   'POST /showAnswer' : 'AnswerController.getAnswer',
-  'POST /getUserDetail' : 'AnswerController.getUserDetail',
   'POST /showApplicant' : 'AnswerController.getApplicant',
   'PUT /logout' : 'UserController.logout'
   

@@ -19,8 +19,7 @@ module.exports = {
     }, function jobCreated(err, newJob) {
       if (err) {
 
-        console.log('err: ', err);
-        console.log('err.invalidAttributes: ', err.invalidAttributes);
+        sails.log.error('Not call job creating' + err);
         // Otherwise, send back something reasonable as our error response.
         return res.negotiate(err);
       }

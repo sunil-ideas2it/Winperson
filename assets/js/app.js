@@ -32,6 +32,10 @@ winperson.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/job.html',
       controller: 'jobController',
     })
+     .when('/job', {
+      templateUrl: 'views/job.html',
+      controller: 'jobController',
+    })
       .when('/question/:id', {
       templateUrl: 'views/question.html',
       controller: 'questionsController',
@@ -64,10 +68,6 @@ winperson.config(function ($routeProvider, $locationProvider) {
        .when('/showanswer/:jobid/:userid', {
       templateUrl: 'views/showanswer.html',
       controller: 'AnswerController',
-    })
-        .when('/showVideo/:vname', {
-      templateUrl: 'views/showVideo.html',
-      controller: 'ShowVideoController',
     })
        .when('/showApplicant/:id', {
       templateUrl: 'views/showApplicant.html',
